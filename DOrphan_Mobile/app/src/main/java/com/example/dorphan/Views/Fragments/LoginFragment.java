@@ -5,11 +5,21 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.dorphan.Helpers.SharedPreferenceHelper;
 import com.example.dorphan.R;
+import com.example.dorphan.ViewModels.LoginViewModel;
+import com.example.dorphan.ViewModels.UserViewModel;
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,9 +75,78 @@ public class LoginFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_login, container, false);
     }
 
+    private TextInputLayout textInputLayoutEmailFragmentLogin, textInputLayoutPasswordFragmentLogin;
+    private Button buttonLoginFragmentLogin;
+    private TextView textViewRegisterFragmentLogin;
+    private LoginViewModel loginViewModelFragmentLogin;
+    private UserViewModel userViewModelFragmentLogin;
+    private SharedPreferenceHelper helperFragmentLogin;
+    //private ProgressBar progressBar_fragment_login;
+    private String objEmailFragmentLogin, objPasswordFragmentLogin;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        helperFragmentLogin = SharedPreferenceHelper.getInstance(requireActivity());
+
+        if (helperFragmentLogin.getAccessToken() != "") {
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment);
+        } else {
+            initial(view);
+            loginProccess();
+            goToRegisterFragment();
+        }
+    }
+
+    private void goToRegisterFragment() {
+        textViewRegisterFragmentLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_registerFragment);
+            }
+        });
+    }
+
+    private void loginProccess() {
+        System.out.println("token1:");
+        buttonLoginFragmentLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                objEmailFragmentLogin = textInputLayoutEmailFragmentLogin.getEditText().getText().toString().trim();
+                objPasswordFragmentLogin = textInputLayoutPasswordFragmentLogin.getEditText().getText().toString().trim();
+                System.out.println(objEmailFragmentLogin + objPasswordFragmentLogin);
+                System.out.println("token2:");
+                loginViewModelFragmentLogin.login(objEmailFragmentLogin, objPasswordFragmentLogin).observe(LoginFragment.this.requireActivity(), tokenResponse -> {
+                    System.out.println("token3:");
+                    if (tokenResponse != null) {
+                        if (tokenResponse.getResult() != null) {
+                            helperFragmentLogin.saveAccessToken(tokenResponse.getResult().getAuthorization());
+                            System.out.println("token3:" + tokenResponse);
+                            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_findSkillFragment);
+                            Toast.makeText(LoginFragment.this.requireActivity(), tokenResponse.getStatus(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginFragment.this.requireActivity(), tokenResponse.getStatus(), Toast.LENGTH_SHORT).show();
+                        }
+
+                    } else {
+                        Toast.makeText(LoginFragment.this.requireActivity(), "Terjadi kesalahan!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+    }
+
+    private void initial(View view) {
+        textInputLayoutEmailFragmentLogin = getActivity().findViewById(R.id.textInputLayoutEmailFragmentLogin);
+        textInputLayoutPasswordFragmentLogin = getActivity().findViewById(R.id.textInputLayoutPasswordFragmentLogin);
+        buttonLoginFragmentLogin = getActivity().findViewById(R.id.buttonLoginFragmentLogin);
+        // progressBar_fragment_login = view.findViewById(R.id.progressBar_fragment_login); // Get ProgressBar reference
+        textViewRegisterFragmentLogin = view.findViewById(R.id.textViewRegisterFragmentLogin);
+
+        loginViewModelFragmentLogin = new ViewModelProvider(getActivity()).get(LoginViewModel.class);
+        userViewModelFragmentLogin = new ViewModelProvider(getActivity()).get(UserViewModel.class);
     }
 
     @Override

@@ -1,9 +1,16 @@
 package com.example.dorphan.Retrofit;
 
 import com.example.dorphan.Helpers.Const;
+import com.example.dorphan.Models.Course;
+import com.example.dorphan.Models.Register;
+import com.example.dorphan.Models.Skill;
+import com.example.dorphan.Models.TokenResponse;
+import com.example.dorphan.Models.User;
+import com.google.gson.JsonObject;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -52,4 +59,20 @@ public class ApiService {
         return service;
     }
 
+    //mengakses apiendpoint dengan memasukkan nilai untuk header yang telah diset pada code di atas
+    public Call<TokenResponse> login(String email, String password) {
+        return api.login(email, password);
+    }
+
+    public Call<Register> register(String name, String email, String password, String password_confirmation, String user_type) {
+        return api.register(name, email, password, password_confirmation, user_type);
+    }
+
+    public Call<User> getUsers() {
+        return api.getUsers();
+    }
+
+    public Call<User> getUserWithId(String userId) {
+        return api.getUserWithId(userId);
+    }
 }

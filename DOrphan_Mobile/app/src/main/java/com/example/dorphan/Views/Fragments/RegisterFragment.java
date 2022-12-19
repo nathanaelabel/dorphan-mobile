@@ -1,15 +1,26 @@
 package com.example.dorphan.Views.Fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.dorphan.R;
+import com.example.dorphan.ViewModels.LoginViewModel;
+import com.example.dorphan.ViewModels.RegisterViewModel;
+import com.example.dorphan.ViewModels.UserViewModel;
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -65,9 +76,89 @@ public class RegisterFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_register, container, false);
     }
 
+    private TextInputLayout textInputLayoutNameFragmentRegister, textInputLayoutEmailFragmentRegister,
+            textInputLayoutPasswordFragmentRegister, textInputLayoutPasswordConfirmationFragmentRegister;
+    private Button buttonRegisterFragmentRegister;
+    private RegisterViewModel registerViewModelFragmentRegister;
+    private RadioGroup radioGroupUserTypeFragmentRegister;
+    private String objNameFragmentRegister, objEmailFragmentRegister, objPasswordFragmentRegister,
+            objPasswordConfirmationFragmentRegister, objUserTypeFragmentRegister;
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initial(view);
+        radioGroupUserTypeChange();
+        registerProccess();
+    }
+
+    private void radioGroupUserTypeChange() {
+        radioGroupUserTypeFragmentRegister.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checked_id) {
+                switch (checked_id) {
+                    case R.id.radioButtonUserTypeOrphanageFragmentRegister:
+                        objUserTypeFragmentRegister = "Pengurus Panti";
+                        break;
+                    case R.id.radioButtonUserTypeTutorFragmentRegister:
+                        objUserTypeFragmentRegister = "Tutor";
+                        break;
+                }
+            }
+        });
+    }
+
+    private void registerProccess() {
+        buttonRegisterFragmentRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                alert.setTitle("Konfirmasi");
+                alert.setMessage("Data akan disimpan. Apakah kamu yakin?");
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        objNameFragmentRegister = textInputLayoutNameFragmentRegister.getEditText().getText().toString().trim();
+                        objEmailFragmentRegister = textInputLayoutEmailFragmentRegister.getEditText().getText().toString().trim();
+                        objPasswordFragmentRegister = textInputLayoutPasswordFragmentRegister.getEditText().getText().toString().trim();
+                        objPasswordConfirmationFragmentRegister = textInputLayoutPasswordConfirmationFragmentRegister.getEditText().getText().toString().trim();
+
+                        if (objEmailFragmentRegister != null && objPasswordFragmentRegister != null && objPasswordConfirmationFragmentRegister != null
+                                && objUserTypeFragmentRegister != null && objNameFragmentRegister != null) {
+                            registerViewModelFragmentRegister.register(objNameFragmentRegister, objEmailFragmentRegister, objPasswordFragmentRegister,
+                                    objPasswordConfirmationFragmentRegister, objUserTypeFragmentRegister).observe(RegisterFragment.this.requireActivity(), register -> {
+                                if (register != null) {
+                                    Toast.makeText(RegisterFragment.this.requireActivity(), register.getStatus(), Toast.LENGTH_SHORT).show();
+                                    Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_loginFragment);
+                                } else {
+                                    Toast.makeText(RegisterFragment.this.requireActivity(), "Terjadi kesalahan!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }
+                });
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alert.create().show();
+            }
+        });
+    }
+
+    private void initial(View view) {
+        textInputLayoutNameFragmentRegister = getActivity().findViewById(R.id.textInputLayoutNameFragmentRegister);
+        textInputLayoutEmailFragmentRegister = getActivity().findViewById(R.id.textInputLayoutEmailFragmentRegister);
+        textInputLayoutPasswordFragmentRegister = getActivity().findViewById(R.id.textInputLayoutPasswordFragmentRegister);
+        textInputLayoutPasswordConfirmationFragmentRegister = view.findViewById(R.id.textInputLayoutPasswordConfirmationFragmentRegister);
+        buttonRegisterFragmentRegister = view.findViewById(R.id.buttonRegisterFragmentRegister);
+        radioGroupUserTypeFragmentRegister = view.findViewById(R.id.radioGroupUserTypeFragmentRegister);
+
+        registerViewModelFragmentRegister = new ViewModelProvider(getActivity()).get(RegisterViewModel.class);
     }
 
     @Override
