@@ -1,0 +1,20 @@
+<resources>
+    <string name="appName">D\'Orphan</string>
+    <string name="appSlogan">Asah Bakat dan Minatmu</string>
+    <string name="emailTextInputLayout">Surel</string>
+    <string name="passwordTextInputLayout">Kata Sandi</string>
+    <string name="passwordConfirmationTextInputLayout">Konfirmasi Kata Sandi</string>
+    <string name="radioGroupDescriptionRegister">Daftar sebagai</string>
+    <string name="orphanage">Panti Asuhan</string>
+    <string name="tutor">Tutor</string>
+    <string name="nameTextInputLayout">Nama</string>
+    <string name="loginHeader">Selamat datang kembali</string>
+    <string name="loginDescription">Silakan masuk ke akun Anda</string>
+    <string name="loginFooterDescription">Belum punya akun?</string>
+    <string name="loginNavigateToRegister">Daftar</string>
+    <string name="loginButtonDescription">Masuk</string>
+    <string name="registerHeader">Halo</string>
+    <string name="registerDescription">Silakan lengkapi data dahulu</string>
+    <string name="hello_blank_fragment">Halo</string>
+    <string name="KetLoading">Loading</string>
+</resources>
