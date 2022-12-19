@@ -23,20 +23,20 @@ public class ApiService {
     public ApiService(String token) {
         OkHttpClient.Builder client = new OkHttpClient.Builder();
 
-        //mau ngasih tau isi headernya apa
-        //jika tidak butuh bearer (header authorization di postman). Tidak butuh token untuk akses data
+        // mau ngasih tau isi headernya apa
+        // jika tidak butuh bearer (header authorization di postman). Tidak butuh token untuk akses data
         if (token.equals("")) {
-            //mulai bikin header
+            // mulai bikin header
             client.addInterceptor(chain -> {
                 Request request = chain.request().newBuilder()
                         .addHeader("Accept", "application/json")
                         .build();
                 return chain.proceed(request);
             });
-        } else { //jika butuh bearer (header authorization di postman). Butuh token untuk akses data
+        } else { // jika butuh bearer (header authorization di postman). Butuh token untuk akses data
             client.addInterceptor(chain -> {
                 Request request = chain.request().newBuilder().addHeader("Accept", "application/json")
-                        .addHeader("Authorization", token) //token akan otomatis dibuatkan
+                        .addHeader("Authorization", token) // token akan otomatis dibuatkan
                         .build();
                 return chain.proceed(request);
             });
@@ -49,7 +49,7 @@ public class ApiService {
                 .build().create(ApiEndPoint.class);
     }
 
-    //agar token yang didapatkan setelah atau sebelum login, dapat diakses di semua kelas
+    // agar token yang didapatkan setelah atau sebelum login, dapat diakses di semua kelas
     public static ApiService getInstance(String token) {
         if (service == null) {
             service = new ApiService(token);
@@ -59,7 +59,7 @@ public class ApiService {
         return service;
     }
 
-    //mengakses apiendpoint dengan memasukkan nilai untuk header yang telah diset pada code di atas
+    // mengakses apiendpoint dengan memasukkan nilai untuk header yang telah diset pada code di atas
     public Call<TokenResponse> login(String email, String password) {
         return api.login(email, password);
     }
@@ -74,5 +74,13 @@ public class ApiService {
 
     public Call<User> getUserWithId(String userId) {
         return api.getUserWithId(userId);
+    }
+
+    public Call<Skill> getSkills() {
+        return api.getSkills();
+    }
+
+    public Call<Course> getCoursesFromSkill(int skill_id) {
+        return api.getCoursesFromSkill(skill_id);
     }
 }

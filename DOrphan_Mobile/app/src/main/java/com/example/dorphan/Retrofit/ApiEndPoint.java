@@ -1,6 +1,8 @@
 package com.example.dorphan.Retrofit;
 
+import com.example.dorphan.Models.Course;
 import com.example.dorphan.Models.Register;
+import com.example.dorphan.Models.Skill;
 import com.example.dorphan.Models.TokenResponse;
 import com.example.dorphan.Models.User;
 import com.google.gson.JsonObject;
@@ -10,6 +12,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface ApiEndPoint {
     @POST("login")
@@ -42,4 +45,10 @@ public interface ApiEndPoint {
     @POST("get_user")
     @FormUrlEncoded
     Call<User> getUserWithId(@Field("user_id") String user_id);
+
+    @GET("skill")
+    Call<Skill> getSkills();
+
+    @GET("course_from_skill/{id}")
+    Call<Course> getCoursesFromSkill(@Path("id") int skill_id);
 }
