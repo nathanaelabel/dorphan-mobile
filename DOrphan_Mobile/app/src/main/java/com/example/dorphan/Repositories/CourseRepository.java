@@ -1,5 +1,16 @@
 package com.example.dorphan.Repositories;
+
+import androidx.lifecycle.MutableLiveData;
+
+import com.example.dorphan.Models.Course;
+import com.example.dorphan.Models.Skill;
 import com.example.dorphan.Retrofit.ApiService;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CourseRepository {
     private static CourseRepository courseRepository;
@@ -22,5 +33,24 @@ public class CourseRepository {
         } else {
             courseRepository = null;
         }
+    }
+
+    public MutableLiveData<List<Course.Result>> getCoursesFromSkill(int skill_id) {
+        final MutableLiveData<List<Course.Result>> listCourses = new MutableLiveData<>();
+
+        apiService.getCoursesFromSkill(skill_id).enqueue(new Callback<Course>() {
+            @Override
+            public void onResponse(Call<Course> call, Response<Course> response) {
+                if (response.isSuccessful()) {
+                    listCourses.postValue(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Course> call, Throwable t) {
+            }
+        });
+
+        return listCourses;
     }
 }
