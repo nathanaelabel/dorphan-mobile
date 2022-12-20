@@ -14,7 +14,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="30dp"
         android:elevation="10dp"
-        app:cardBackgroundColor="#FAE952"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,11 +51,9 @@
                 color="#FF000000"
                 android:layout_width="105dp"
                 android:layout_height="97dp"
-
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/ic_profile"
-                app:civ_border_width="2dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
