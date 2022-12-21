@@ -51,7 +51,7 @@ public class Course implements Parcelable {
     public static class Result {
         private int id;
         private Tutor tutor;
-        private User user;
+        private TutorUser tutor_user;
         private Skill skill;
         private String description;
         private String location;
@@ -62,7 +62,7 @@ public class Course implements Parcelable {
         private String tool_description;
         private String start_time;
         private String day;
-        private Object price_sum;
+        private int price_sum;
         private int hour_sum;
         private String created_at;
         private String updated_at;
@@ -88,12 +88,12 @@ public class Course implements Parcelable {
             this.tutor = tutor;
         }
 
-        public User getUser() {
-            return user;
+        public TutorUser getTutor_user() {
+            return tutor_user;
         }
 
-        public void setUser(User user) {
-            this.user = user;
+        public void setTutor_user(TutorUser tutor_user) {
+            this.tutor_user = tutor_user;
         }
 
         public Skill getSkill() {
@@ -176,11 +176,11 @@ public class Course implements Parcelable {
             this.day = day;
         }
 
-        public Object getPrice_sum() {
+        public int getPrice_sum() {
             return price_sum;
         }
 
-        public void setPrice_sum(Object price_sum) {
+        public void setPrice_sum(int price_sum) {
             this.price_sum = price_sum;
         }
 
@@ -215,6 +215,7 @@ public class Course implements Parcelable {
             private String description;
             private String created_at;
             private String updated_at;
+            private User user;
 
             public static Tutor objectFromData(String str) {
 
@@ -268,9 +269,151 @@ public class Course implements Parcelable {
             public void setUpdated_at(String updated_at) {
                 this.updated_at = updated_at;
             }
+
+            public User getUser() {
+                return user;
+            }
+
+            public void setUser(User user) {
+                this.user = user;
+            }
+
+            public static class User {
+                private int id;
+                private String name;
+                private String email;
+                private int money;
+                private String phone_number;
+                private String is_active;
+                private String is_login;
+                private String gender;
+                private String user_type;
+                private String email_verified_at;
+                private Object profile_photo_path;
+                private String address;
+                private String created_at;
+                private String updated_at;
+
+                public static User objectFromData(String str) {
+
+                    return new Gson().fromJson(str, User.class);
+                }
+
+                public int getId() {
+                    return id;
+                }
+
+                public void setId(int id) {
+                    this.id = id;
+                }
+
+                public String getName() {
+                    return name;
+                }
+
+                public void setName(String name) {
+                    this.name = name;
+                }
+
+                public String getEmail() {
+                    return email;
+                }
+
+                public void setEmail(String email) {
+                    this.email = email;
+                }
+
+                public int getMoney() {
+                    return money;
+                }
+
+                public void setMoney(int money) {
+                    this.money = money;
+                }
+
+                public String getPhone_number() {
+                    return phone_number;
+                }
+
+                public void setPhone_number(String phone_number) {
+                    this.phone_number = phone_number;
+                }
+
+                public String getIs_active() {
+                    return is_active;
+                }
+
+                public void setIs_active(String is_active) {
+                    this.is_active = is_active;
+                }
+
+                public String getIs_login() {
+                    return is_login;
+                }
+
+                public void setIs_login(String is_login) {
+                    this.is_login = is_login;
+                }
+
+                public String getGender() {
+                    return gender;
+                }
+
+                public void setGender(String gender) {
+                    this.gender = gender;
+                }
+
+                public String getUser_type() {
+                    return user_type;
+                }
+
+                public void setUser_type(String user_type) {
+                    this.user_type = user_type;
+                }
+
+                public String getEmail_verified_at() {
+                    return email_verified_at;
+                }
+
+                public void setEmail_verified_at(String email_verified_at) {
+                    this.email_verified_at = email_verified_at;
+                }
+
+                public Object getProfile_photo_path() {
+                    return profile_photo_path;
+                }
+
+                public void setProfile_photo_path(Object profile_photo_path) {
+                    this.profile_photo_path = profile_photo_path;
+                }
+
+                public String getAddress() {
+                    return address;
+                }
+
+                public void setAddress(String address) {
+                    this.address = address;
+                }
+
+                public String getCreated_at() {
+                    return created_at;
+                }
+
+                public void setCreated_at(String created_at) {
+                    this.created_at = created_at;
+                }
+
+                public String getUpdated_at() {
+                    return updated_at;
+                }
+
+                public void setUpdated_at(String updated_at) {
+                    this.updated_at = updated_at;
+                }
+            }
         }
 
-        public static class User {
+        public static class TutorUser {
             private int id;
             private String name;
             private String email;
@@ -286,9 +429,9 @@ public class Course implements Parcelable {
             private String created_at;
             private String updated_at;
 
-            public static User objectFromData(String str) {
+            public static TutorUser objectFromData(String str) {
 
-                return new Gson().fromJson(str, User.class);
+                return new Gson().fromJson(str, TutorUser.class);
             }
 
             public int getId() {

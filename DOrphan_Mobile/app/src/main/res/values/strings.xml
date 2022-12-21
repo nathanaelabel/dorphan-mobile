@@ -17,4 +17,20 @@
     <string name="registerDescription">Silakan lengkapi data dahulu</string>
     <string name="hello_blank_fragment">Halo</string>
     <string name="KetLoading">Loading</string>
+    <string name="name">Nama</string>
+    <string name="gender">Jenis Kelamin</string>
+    <string name="tutorInformation">Informasi Tutor</string>
+    <string name="courseInformation">Informasi Kursus</string>
+    <string name="description">Deskripsi</string>
+    <string name="location">Lokasi</string>
+    <string name="toolDescription">Persediaan Alat</string>
+    <string name="schedule">Jadwal</string>
+    <string name="time">Jam</string>
+    <string name="day">Hari</string>
+    <string name="courseBooking">Pemesanan Kursus</string>
+    <string name="hourlySum">Jumlah Jam</string>
+    <string name="priceTool">Total Harga Sewa Alat</string>
+    <string name="priceSum">Total Harga</string>
+    <string name="memberSum">Jumlah Anak Kursus</string>
+    <string name="reservationCourse">Pesan Kursus</string>
 </resources>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/action_logreg"
-    app:startDestination="@id/findSkillFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -33,9 +33,9 @@
     </fragment>
     <fragment
         android:id="@+id/courseBookedFragment"
-        android:name="com.example.dorphan.Views.Fragments.KursusFragment"
-        android:label="fragment_kursus"
-        tools:layout="@layout/fragment_kursus" >
+        android:name="com.example.dorphan.Views.Fragments.CourseBookedFragment"
+        android:label="Kursus"
+        tools:layout="@layout/fragment_course_booked" >
         <action
             android:id="@+id/action_courseBookedFragment_to_courseBookedDetailFragment"
             app:destination="@id/courseBookedDetailFragment" />
@@ -43,30 +43,43 @@
     <fragment
         android:id="@+id/findSkillFragment"
         android:name="com.example.dorphan.Views.Fragments.FindSkillFragment"
-        android:label="fragment_cari_kursus"
-        tools:layout="@layout/fragment_find_skill" >
+        android:label="Cari Kursus"
+        tools:layout="@layout/fragment_find_skill">
         <action
             android:id="@+id/action_findSkillFragment_to_findTutorFragment"
             app:destination="@id/findTutorFragment" />
     </fragment>
     <fragment
         android:id="@+id/findTutorFragment"
-        android:name="com.example.dorphan.Views.Fragments.CariTutorFragment"
-        android:label="fragment_cari_tutor"
-        tools:layout="@layout/fragment_find_tutor" >
+        android:name="com.example.dorphan.Views.Fragments.FindTutorFragment"
+        android:label="Cari Tutor"
+        tools:layout="@layout/fragment_find_tutor">
         <action
             android:id="@+id/action_findTutorFragment_to_courseBookingDetailFragment"
             app:destination="@id/courseBookingDetailFragment" />
         <argument
             android:name="skillId"
-            app:argType="string"
-            app:nullable="true" />
+            android:defaultValue="1"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/courseBookingDetailFragment"
-        android:name="com.example.dorphan.Views.Fragments.CourseBookingFragment"
-        android:label="fragment_course_booking"
-        tools:layout="@layout/fragment_course_booking" />
+        android:name="com.example.dorphan.Views.Fragments.CourseBookingDetailFragment"
+        tools:layout="@layout/fragment_course_booking_detail" >
+        <argument
+            android:name="courseId"
+            app:argType="string"
+            android:defaultValue="1" />
+        <argument
+            android:name="isReservation"
+            app:argType="boolean"
+            android:defaultValue="true" />
+        <action
+            android:id="@+id/action_courseBookingDetailFragment_to_findSkillFragment"
+            app:destination="@id/findSkillFragment"
+            app:popUpTo="@id/findSkillFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
     <fragment
         android:id="@+id/courseBookedDetailFragment"
         android:name="com.example.dorphan.Views.Fragments.DetailKursusFragment"

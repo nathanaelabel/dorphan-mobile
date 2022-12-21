@@ -100,7 +100,7 @@ public class TokenResponse implements Parcelable {
         }
 
         public String getAuthorization() {
-            return this.token_type + "" + this.access_token;
+            return this.token_type + " " + this.access_token;
         }
     }
 }
