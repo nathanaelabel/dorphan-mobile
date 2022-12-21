@@ -47,7 +47,6 @@ public class CourseViewModel extends AndroidViewModel {
         return resultForCoursesDetail;
     }
 
-
     @Override
     protected void onCleared() {
         super.onCleared();

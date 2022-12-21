@@ -29,11 +29,6 @@ import com.example.dorphan.ViewModels.SkillViewModel;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FindTutorFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FindTutorFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -46,17 +41,8 @@ public class FindTutorFragment extends Fragment {
     private String mParam2;
 
     public FindTutorFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FindTutorFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static FindTutorFragment newInstance(String param1, String param2) {
         FindTutorFragment fragment = new FindTutorFragment();
@@ -99,7 +85,7 @@ public class FindTutorFragment extends Fragment {
 
         skillId = Integer.parseInt(getArguments().getString("skillId"));
 
-        courseViewModelFindTutorFragment.init(helperFindTutorFragment.getAccessToken()); //unsend
+        courseViewModelFindTutorFragment.init(helperFindTutorFragment.getAccessToken());
         courseViewModelFindTutorFragment.getCoursesFromSkill(skillId);
         courseViewModelFindTutorFragment.getResultCoursesFromSkill().observe(getActivity(), showResultCoursesFromSkill);
         addItemClickSupport();
@@ -109,7 +95,7 @@ public class FindTutorFragment extends Fragment {
         @Override
         public void onChanged(List<Course.Result> results) {
             if (results != null) {
-                System.out.println("results"+results.size());
+                System.out.println("results" + results.size());
                 setRvFindTutorFragment(results);
             }
         }

@@ -21,11 +21,6 @@ import com.example.dorphan.ViewModels.LoginViewModel;
 import com.example.dorphan.ViewModels.UserViewModel;
 import com.google.android.material.textfield.TextInputLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LoginFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class LoginFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -38,18 +33,8 @@ public class LoginFragment extends Fragment {
     private String mParam2;
 
     public LoginFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LoginFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static LoginFragment newInstance(String param1, String param2) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
@@ -111,7 +96,6 @@ public class LoginFragment extends Fragment {
         buttonLoginFragmentLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 objEmailFragmentLogin = textInputLayoutEmailFragmentLogin.getEditText().getText().toString().trim();
                 objPasswordFragmentLogin = textInputLayoutPasswordFragmentLogin.getEditText().getText().toString().trim();
 

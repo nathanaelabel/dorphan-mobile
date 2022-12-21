@@ -9,7 +9,6 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.dorphan.Models.Register;
 import com.example.dorphan.Repositories.AuthRepository;
 
-
 public class RegisterViewModel extends AndroidViewModel {
     private AuthRepository authRepository;
 

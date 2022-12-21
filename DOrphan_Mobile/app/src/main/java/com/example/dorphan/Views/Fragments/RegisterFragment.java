@@ -22,11 +22,6 @@ import com.example.dorphan.ViewModels.RegisterViewModel;
 import com.example.dorphan.ViewModels.UserViewModel;
 import com.google.android.material.textfield.TextInputLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegisterFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RegisterFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -39,17 +34,8 @@ public class RegisterFragment extends Fragment {
     private String mParam2;
 
     public RegisterFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegisterFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static RegisterFragment newInstance(String param1, String param2) {
         RegisterFragment fragment = new RegisterFragment();

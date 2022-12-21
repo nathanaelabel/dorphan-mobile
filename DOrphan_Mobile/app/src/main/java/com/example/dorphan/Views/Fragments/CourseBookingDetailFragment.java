@@ -29,11 +29,6 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CourseBookingDetailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CourseBookingDetailFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -46,17 +41,8 @@ public class CourseBookingDetailFragment extends Fragment {
     private String mParam2;
 
     public CourseBookingDetailFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CourseBookingFragment.
-     */
     // TODO: Rename and change types and number of parameters
     public static CourseBookingDetailFragment newInstance(String param1, String param2) {
         CourseBookingDetailFragment fragment = new CourseBookingDetailFragment();
@@ -111,13 +97,8 @@ public class CourseBookingDetailFragment extends Fragment {
             courseViewModelCourseBookingDetailFragment.getCourses(courseId);
             courseViewModelCourseBookingDetailFragment.getResultForCoursesDetail().observe(getActivity(), showResultForCoursesDetail);
         } else {
-//            courseBookingViewModelCourseBookingDetailFragment.init(helperCourseBookingDetailFragment.getAccessToken()); //unsend
-//            courseBookingViewModelCourseBookingDetailFragment.getCourseBooking(courseBookingId);
-//            courseBookingViewModelCourseBookingDetailFragment.getResultCourseBooking().observe(getActivity(), showResultCourseBooking);
         }
-        //checkButtonReservation();
         reservationProccess();
-
     }
 
     private Observer<List<Course.Result>> showResultForCoursesDetail = new Observer<List<Course.Result>>() {
@@ -161,15 +142,6 @@ public class CourseBookingDetailFragment extends Fragment {
             }
         }
     };
-
-//    private Observer<List<CourseBooking.Result>> showResultCourseBooking = new Observer<List<CourseBooking.Result>>() {
-//        @Override
-//        public void onChanged(List<CourseBooking.Result> results) {
-//            if (results != null) {
-//               // textViewMemberSumCourseBookingDetailFragment.setText(results.get(0).get);
-//            }
-//        }
-//    };
 
     private void initial() {
         textViewTutorNameCourseBookingDetailFragment = getActivity().findViewById(R.id.textViewTutorNameCourseBookingDetailFragment);
@@ -216,7 +188,7 @@ public class CourseBookingDetailFragment extends Fragment {
 
                 try {
                     memberSumTextInputLayout = Integer.parseInt(textInputLayoutMemberSumCourseBookingDetailFragment.getEditText().getText().toString());
-                } catch (NumberFormatException ex) { // handle your exception
+                } catch (NumberFormatException ex) {
                 }
 
                 if (memberSumTextInputLayout > 0 && memberSumTextInputLayout <= memberSum) {
@@ -226,8 +198,6 @@ public class CourseBookingDetailFragment extends Fragment {
                     alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-//                            objMemberSumCourseBookingDetailFragment = Integer.parseInt(textInputLayoutMemberSumCourseBookingDetailFragment.getEditText().getText().toString());
-
                             courseBookingViewModelCourseBookingDetailFragment.init(helperCourseBookingDetailFragment.getAccessToken()); //unsend
 
                             courseBookingViewModelCourseBookingDetailFragment.addCourseBooking(courseId, memberSumTextInputLayout).observe(CourseBookingDetailFragment.this.requireActivity(), status -> {
@@ -262,16 +232,6 @@ public class CourseBookingDetailFragment extends Fragment {
             }
         });
     }
-
-//    private void checkButtonReservation() {
-//        if (textInputLayoutMemberSumCourseBookingDetailFragment.getEditText().getText().toString().trim() != null) {
-//            buttonReservationCourseBookingDetailFragment.setEnabled(true);
-//            buttonReservationCourseBookingDetailFragment.setBackgroundResource(R.color.blue500);
-//        } else {
-//            buttonReservationCourseBookingDetailFragment.setEnabled(false);
-//            buttonReservationCourseBookingDetailFragment.setBackgroundResource(R.color.grey500);
-//        }
-//    }
 
     @Override
     public void onDetach() {

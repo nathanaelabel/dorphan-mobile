@@ -22,15 +22,7 @@ public class CourseBookingViewModel extends AndroidViewModel {
         courseBookingRepository = CourseBookingRepository.getInstance(token);
     }
 
-//    private MutableLiveData<List<CourseBooking.Result>> resultGetCourseBooking = new MutableLiveData<>();
-//    public void getCourseBooking(String user_id){
-//        resultGetCourseBooking = courseBookingRepository.getCourseBooking(user_id);
-//    }
-//    public LiveData<List<CourseBooking.Result>> getResultGetCourseBooking(){
-//        return resultGetCourseBooking;
-//    }
-
-    public LiveData<String> addCourseBooking(int course_id, int member_sum){
+    public LiveData<String> addCourseBooking(int course_id, int member_sum) {
         return courseBookingRepository.addCourseBooking(course_id, member_sum);
     }
 

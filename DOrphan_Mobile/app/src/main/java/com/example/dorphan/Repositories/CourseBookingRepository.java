@@ -39,25 +39,6 @@ public class CourseBookingRepository {
         }
     }
 
-//    public MutableLiveData<List<CourseBooking.Result>> getCourseBooking(String user_id) {
-//        final MutableLiveData<List<CourseBooking.Result>> listCourseBooking = new MutableLiveData<>();
-//
-//        apiService.getCourseBooking(user_id).enqueue(new Callback<CourseBooking>() {
-//            @Override
-//            public void onResponse(Call<CourseBooking> call, Response<CourseBooking> response) {
-//                if (response.isSuccessful()) {
-//                    listCourseBooking.postValue(response.body().getResult());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<CourseBooking> call, Throwable t) {
-//            }
-//        });
-//
-//        return listCourseBooking;
-//    }
-
     public LiveData<String> addCourseBooking(int course_id, int member_sum) {
         final MutableLiveData<String> status = new MutableLiveData<>();
         apiService.addCourseBooking(course_id, member_sum) .enqueue(new Callback<JsonObject>() {

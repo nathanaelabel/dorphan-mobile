@@ -17,7 +17,7 @@ public class AuthRepository {
     private static final String TAG = "AuthRepository";
 
     private AuthRepository() {
-        apiService = ApiService.getInstance(""); //getinstance("") krna ktika login tdk mmbthkn token (barier, header di postman)
+        apiService = ApiService.getInstance("");
     }
 
     public static AuthRepository getInstance() {
@@ -33,7 +33,6 @@ public class AuthRepository {
         apiService.login(email, password).enqueue(new Callback<TokenResponse>() {
             @Override
             public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
-                //nilai 200 itu artinya jika berhasil
                 System.out.println("respon:" + response.body());
                 if (response.body() != null) {
                     tokenResponseMutableLiveData.postValue(response.body());
@@ -55,7 +54,7 @@ public class AuthRepository {
             @Override
             public void onResponse(Call<Register> call, Response<Register> response) {
                 if (response.isSuccessful()) {
-                    if (response.code() == 200) { //nilai 200 itu artinya jika berhasil
+                    if (response.code() == 200) {
                         if (response.body() != null) {
                             RegisterResponseMutableLiveData.postValue(response.body());
                         }
