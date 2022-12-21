@@ -102,6 +102,7 @@ public class FindTutorFragment extends Fragment {
         courseViewModelFindTutorFragment.init(helperFindTutorFragment.getAccessToken()); //unsend
         courseViewModelFindTutorFragment.getCoursesFromSkill(skillId);
         courseViewModelFindTutorFragment.getResultCoursesFromSkill().observe(getActivity(), showResultCoursesFromSkill);
+        addItemClickSupport();
     }
 
     private Observer<List<Course.Result>> showResultCoursesFromSkill = new Observer<List<Course.Result>>() {
@@ -133,6 +134,7 @@ public class FindTutorFragment extends Fragment {
                 bundleFindTutorFragment = new Bundle();
                 bundleCourseId = adapterFindTutorFragment.getListCourses().get(position).getId();
                 bundleFindTutorFragment.putString("courseId", "" + bundleCourseId);
+                bundleFindTutorFragment.putBoolean("isReservation", true);
                 Navigation.findNavController(v).navigate(R.id.action_findTutorFragment_to_courseBookingDetailFragment, bundleFindTutorFragment);
             }
         });

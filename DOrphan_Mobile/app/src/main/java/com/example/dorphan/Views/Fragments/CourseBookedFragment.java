@@ -17,10 +17,10 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link KursusFragment#newInstance} factory method to
+ * Use the {@link CourseBookedFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class KursusFragment extends Fragment {
+public class CourseBookedFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,10 +31,9 @@ public class KursusFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public KursusFragment() {
+    public CourseBookedFragment() {
         // Required empty public constructor
     }
-
 
 
     /**
@@ -46,8 +45,8 @@ public class KursusFragment extends Fragment {
      * @return A new instance of fragment KursusFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static KursusFragment newInstance(String param1, String param2) {
-        KursusFragment fragment = new KursusFragment();
+    public static CourseBookedFragment newInstance(String param1, String param2) {
+        CourseBookedFragment fragment = new CourseBookedFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -66,13 +65,14 @@ public class KursusFragment extends Fragment {
 
     TabLayout tabLayout_list_kursus_fragment_kursus;
     ViewPager2 viewpager_list_kursus_fragment_kursus;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        ViewGroup view=(ViewGroup) inflater.inflate(R.layout.fragment_kursus, container, false);
-        initialisasi(view);
+        ViewGroup view = (ViewGroup) inflater.inflate(R.layout.fragment_course_booked, container, false);
+        initial(view);
 
         viewpager_list_kursus_fragment_kursus.setAdapter(
                 new rvAdapter_kursusFragment(this)
@@ -82,7 +82,7 @@ public class KursusFragment extends Fragment {
                 new TabLayoutMediator.TabConfigurationStrategy() {
                     @Override
                     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                        switch(position){
+                        switch (position) {
                             case 0:
                                 tab.setText("Pesanan");
                                 break;
@@ -95,18 +95,16 @@ public class KursusFragment extends Fragment {
                                 tab.setText("Riwayat");
                                 break;
                         }
-
                     }
                 }
         ).attach();
         return view;
     }
 
-
     rvAdapter_kursusFragment adapter;
-    private void initialisasi(ViewGroup view) {
-        tabLayout_list_kursus_fragment_kursus=view.findViewById(R.id.tabLayout_list_kursus_fragment_kursus);
-        viewpager_list_kursus_fragment_kursus=view.findViewById(R.id.viewpager_list_kursus_fragment_kursus);
-    }
 
+    private void initial(ViewGroup view) {
+        tabLayout_list_kursus_fragment_kursus = view.findViewById(R.id.tabLayout_list_kursus_fragment_kursus);
+        viewpager_list_kursus_fragment_kursus = view.findViewById(R.id.viewpager_list_kursus_fragment_kursus);
+    }
 }

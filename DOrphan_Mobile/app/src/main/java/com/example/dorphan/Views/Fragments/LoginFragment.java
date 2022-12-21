@@ -81,7 +81,6 @@ public class LoginFragment extends Fragment {
     private LoginViewModel loginViewModelFragmentLogin;
     private UserViewModel userViewModelFragmentLogin;
     private SharedPreferenceHelper helperFragmentLogin;
-    //private ProgressBar progressBar_fragment_login;
     private String objEmailFragmentLogin, objPasswordFragmentLogin;
 
     @Override
@@ -91,7 +90,7 @@ public class LoginFragment extends Fragment {
         helperFragmentLogin = SharedPreferenceHelper.getInstance(requireActivity());
 
         if (helperFragmentLogin.getAccessToken() != "") {
-            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment);
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_findSkillFragment);
         } else {
             initial(view);
             loginProccess();
@@ -109,31 +108,32 @@ public class LoginFragment extends Fragment {
     }
 
     private void loginProccess() {
-        System.out.println("token1:");
         buttonLoginFragmentLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 objEmailFragmentLogin = textInputLayoutEmailFragmentLogin.getEditText().getText().toString().trim();
                 objPasswordFragmentLogin = textInputLayoutPasswordFragmentLogin.getEditText().getText().toString().trim();
-                System.out.println(objEmailFragmentLogin + objPasswordFragmentLogin);
-                System.out.println("token2:");
-                loginViewModelFragmentLogin.login(objEmailFragmentLogin, objPasswordFragmentLogin).observe(LoginFragment.this.requireActivity(), tokenResponse -> {
-                    System.out.println("token3:");
-                    if (tokenResponse != null) {
-                        if (tokenResponse.getResult() != null) {
-                            helperFragmentLogin.saveAccessToken(tokenResponse.getResult().getAuthorization());
-                            System.out.println("token3:" + tokenResponse);
-                            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_findSkillFragment);
-                            Toast.makeText(LoginFragment.this.requireActivity(), tokenResponse.getStatus(), Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(LoginFragment.this.requireActivity(), tokenResponse.getStatus(), Toast.LENGTH_SHORT).show();
-                        }
 
-                    } else {
-                        Toast.makeText(LoginFragment.this.requireActivity(), "Terjadi kesalahan!", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                if (!objEmailFragmentLogin.isEmpty() && !objPasswordFragmentLogin.isEmpty()) {
+                    loginViewModelFragmentLogin.login(objEmailFragmentLogin, objPasswordFragmentLogin).observe(LoginFragment.this.requireActivity(), tokenResponse -> {
+
+                        if (tokenResponse != null) {
+                            if (tokenResponse.getResult() != null) {
+                                helperFragmentLogin.saveAccessToken(tokenResponse.getResult().getAuthorization());
+                                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_findSkillFragment);
+                                Toast.makeText(LoginFragment.this.requireActivity(), tokenResponse.getStatus(), Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(LoginFragment.this.requireActivity(), tokenResponse.getStatus(), Toast.LENGTH_SHORT).show();
+                            }
+
+                        } else {
+                            Toast.makeText(LoginFragment.this.requireActivity(), "Terjadi kesalahan!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(LoginFragment.this.requireActivity(), "Silakan lengkapi data anda!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -142,7 +142,6 @@ public class LoginFragment extends Fragment {
         textInputLayoutEmailFragmentLogin = getActivity().findViewById(R.id.textInputLayoutEmailFragmentLogin);
         textInputLayoutPasswordFragmentLogin = getActivity().findViewById(R.id.textInputLayoutPasswordFragmentLogin);
         buttonLoginFragmentLogin = getActivity().findViewById(R.id.buttonLoginFragmentLogin);
-        // progressBar_fragment_login = view.findViewById(R.id.progressBar_fragment_login); // Get ProgressBar reference
         textViewRegisterFragmentLogin = view.findViewById(R.id.textViewRegisterFragmentLogin);
 
         loginViewModelFragmentLogin = new ViewModelProvider(getActivity()).get(LoginViewModel.class);

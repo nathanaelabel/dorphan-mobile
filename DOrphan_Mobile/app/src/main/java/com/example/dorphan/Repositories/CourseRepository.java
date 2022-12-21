@@ -53,4 +53,23 @@ public class CourseRepository {
 
         return listCourses;
     }
+
+    public MutableLiveData<List<Course.Result>> getCourses(int course_id) {
+        final MutableLiveData<List<Course.Result>> listForCoursesDetail = new MutableLiveData<>();
+
+        apiService.getCourses(course_id).enqueue(new Callback<Course>() {
+            @Override
+            public void onResponse(Call<Course> call, Response<Course> response) {
+                if (response.isSuccessful()) {
+                    listForCoursesDetail.postValue(response.body().getResult());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Course> call, Throwable t) {
+            }
+        });
+
+        return listForCoursesDetail;
+    }
 }

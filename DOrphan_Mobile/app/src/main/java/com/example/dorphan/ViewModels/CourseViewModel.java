@@ -36,6 +36,17 @@ public class CourseViewModel extends AndroidViewModel {
         return resultCourses;
     }
 
+    ///
+    private MutableLiveData<List<Course.Result>> resultForCoursesDetail = new MutableLiveData<>();
+
+    public void getCourses(int course_id) {
+        resultForCoursesDetail = courseRepository.getCourses(course_id);
+    }
+
+    public LiveData<List<Course.Result>> getResultForCoursesDetail() {
+        return resultForCoursesDetail;
+    }
+
 
     @Override
     protected void onCleared() {

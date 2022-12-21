@@ -114,19 +114,16 @@ public class RegisterFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-                alert.setTitle("Konfirmasi");
-                alert.setMessage("Data akan disimpan. Apakah kamu yakin?");
-                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        objNameFragmentRegister = textInputLayoutNameFragmentRegister.getEditText().getText().toString().trim();
-                        objEmailFragmentRegister = textInputLayoutEmailFragmentRegister.getEditText().getText().toString().trim();
-                        objPasswordFragmentRegister = textInputLayoutPasswordFragmentRegister.getEditText().getText().toString().trim();
-                        objPasswordConfirmationFragmentRegister = textInputLayoutPasswordConfirmationFragmentRegister.getEditText().getText().toString().trim();
+                getValueOfTextInputLayoutRegisterFragment();
+                if (objEmailFragmentRegister != null && objPasswordFragmentRegister != null && objPasswordConfirmationFragmentRegister != null
+                        && objUserTypeFragmentRegister != null && objNameFragmentRegister != null) {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                    alert.setTitle("Konfirmasi");
+                    alert.setMessage("Data akan disimpan. Apakah anda yakin?");
+                    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
 
-                        if (objEmailFragmentRegister != null && objPasswordFragmentRegister != null && objPasswordConfirmationFragmentRegister != null
-                                && objUserTypeFragmentRegister != null && objNameFragmentRegister != null) {
                             registerViewModelFragmentRegister.register(objNameFragmentRegister, objEmailFragmentRegister, objPasswordFragmentRegister,
                                     objPasswordConfirmationFragmentRegister, objUserTypeFragmentRegister).observe(RegisterFragment.this.requireActivity(), register -> {
                                 if (register != null) {
@@ -136,18 +133,29 @@ public class RegisterFragment extends Fragment {
                                     Toast.makeText(RegisterFragment.this.requireActivity(), "Terjadi kesalahan!", Toast.LENGTH_SHORT).show();
                                 }
                             });
-                        }
-                    }
-                });
-                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                });
-                alert.create().show();
+                        }
+                    });
+                    alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    });
+                    alert.create().show();
+                } else {
+                    Toast.makeText(RegisterFragment.this.requireActivity(), "Silakan lengkapi data anda!", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
+    }
+
+    private void getValueOfTextInputLayoutRegisterFragment() {
+        objNameFragmentRegister = textInputLayoutNameFragmentRegister.getEditText().getText().toString().trim();
+        objEmailFragmentRegister = textInputLayoutEmailFragmentRegister.getEditText().getText().toString().trim();
+        objPasswordFragmentRegister = textInputLayoutPasswordFragmentRegister.getEditText().getText().toString().trim();
+        objPasswordConfirmationFragmentRegister = textInputLayoutPasswordConfirmationFragmentRegister.getEditText().getText().toString().trim();
     }
 
     private void initial(View view) {
