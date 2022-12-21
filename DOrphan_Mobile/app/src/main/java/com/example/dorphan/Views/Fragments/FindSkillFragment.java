@@ -99,7 +99,6 @@ public class FindSkillFragment extends Fragment {
         skillViewModelFindSkillFragment.init(helperFindSkillFragment.getAccessToken()); //unsend
         skillViewModelFindSkillFragment.getSkills();
         skillViewModelFindSkillFragment.getResultSkills().observe(getActivity(), showResultSkills);
-
     }
 
     private Observer<List<Skill.Result>> showResultSkills = new Observer<List<Skill.Result>>() {

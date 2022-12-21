@@ -40,7 +40,7 @@
                 android:layout_marginTop="20dp"
                 android:gravity="start"
                 android:text="@string/tutorInformation"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +53,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="start"
                 android:text="@string/name"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -65,7 +66,7 @@
                 android:layout_marginEnd="15dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/gender"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTutorNameCourseBookingDetailFragment" />
@@ -89,7 +91,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="@string/hello_blank_fragment"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewTutorNameCourseBookingDetailFragment"
@@ -113,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/courseInformation"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -126,7 +128,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="Basket"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewTutorGenderCourseBookingDetailFragment"
@@ -139,6 +141,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="@string/name"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
@@ -148,6 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/description"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseNameCourseBookingDetailFragment" />
@@ -159,7 +163,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseNameCourseBookingDetailFragment"
                 app:layout_constraintStart_toEndOf="@+id/textView13"
@@ -171,6 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/location"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/textView13"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseDescriptionCourseBookingDetailFragment" />
 
@@ -181,7 +186,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseDescriptionCourseBookingDetailFragment"
@@ -194,6 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/toolDescription"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView15"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseLocationCourseBookingDetailFragment" />
@@ -205,7 +211,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseLocationCourseBookingDetailFragment"
@@ -230,6 +236,7 @@
                 android:gravity="start"
                 android:text="TextView"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView6"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
                 app:layout_constraintTop_toTopOf="@+id/textView6" />
 
@@ -239,7 +246,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/schedule"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
@@ -251,6 +258,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="@string/time"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView18"
                 app:layout_constraintTop_toBottomOf="@+id/textView18" />
@@ -262,7 +270,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseToolDescriptionCourseBookingDetailFragment"
@@ -275,6 +283,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/day"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView19"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseTimeCourseBookingDetailFragment" />
@@ -286,7 +295,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseTimeCourseBookingDetailFragment"
@@ -309,7 +318,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/courseBooking"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView18"
@@ -321,6 +330,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/hourlySum"
+                android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/textView25"
                 app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
@@ -331,7 +341,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseDayCourseBookingDetailFragment"
@@ -344,6 +354,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/priceTool"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView27"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseHourSumCourseBookingDetailFragment" />
@@ -355,7 +366,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseHourSumCourseBookingDetailFragment"
@@ -368,7 +379,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/priceSum"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView29"
@@ -381,7 +392,7 @@
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseToolPriceCourseBookingDetailFragment"
@@ -394,7 +405,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="@string/memberSum"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView31"
@@ -402,11 +413,14 @@
 
             <TextView
                 android:id="@+id/textViewMemberSumMaximalDescriptionCourseBookingDetailFragment"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"
                 android:text="TextView"
+                android:textColor="@color/black"
                 android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView33"
                 app:layout_constraintTop_toTopOf="@+id/textView33" />
 
@@ -432,16 +446,20 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
                 android:visibility="visible"
+                app:boxStrokeColor="@drawable/selector_states_textinputlayout"
+                app:hintTextColor="@drawable/selector_states_textinputlayout"
                 app:layout_constraintBottom_toTopOf="@+id/buttonReservationCourseBookingDetailFragment"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCoursePriceSumCourseBookingDetailFragment"
                 app:layout_constraintStart_toStartOf="@+id/textView33"
                 app:layout_constraintTop_toBottomOf="@+id/textView33">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Masukkan jumlah peserta kursus"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button

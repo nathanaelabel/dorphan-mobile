@@ -53,9 +53,16 @@
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan/app/src/main/res/layout/fragment_tab_pesanan_kursus.xml" value="0.4" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan/app/src/main/res/layout/fragment_tabview_log_in.xml" value="0.4" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/fragment_course_booking_detail.xml" value="0.23229166666666667" />
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/card_find_skill.xml" value="0.4" />
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/card_find_tutor.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/card_pesanan_kursus_fragment_kursus.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/card_riwayat_kursus_fragment_kursus.xml" value="0.2223731884057971" />
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/fragment_course_booking_detail.xml" value="0.264" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/fragment_find_skill.xml" value="0.264" />
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/fragment_find_tutor.xml" value="0.2223731884057971" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/fragment_kategori.xml" value="0.1539855072463768" />
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/fragment_login.xml" value="0.4" />
+        <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/layout/fragment_register.xml" value="0.2223731884057971" />
         <entry key="..\:/Users/Darryl/AndroidStudioProjects/D-Orphan_SE/DOrphan_Mobile/app/src/main/res/menu/main_menu.xml" value="0.23229166666666667" />
         <entry key="..\:/phys8/app/src/main/res/drawable-v24/gradient_background_corner.xml" value="0.15026087454956302" />
         <entry key="..\:/phys8/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17291666666666666" />

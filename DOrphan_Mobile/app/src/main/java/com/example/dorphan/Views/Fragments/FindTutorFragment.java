@@ -109,6 +109,7 @@ public class FindTutorFragment extends Fragment {
         @Override
         public void onChanged(List<Course.Result> results) {
             if (results != null) {
+                System.out.println("results"+results.size());
                 setRvFindTutorFragment(results);
             }
         }
