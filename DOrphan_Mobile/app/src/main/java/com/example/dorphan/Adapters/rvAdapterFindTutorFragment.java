@@ -43,7 +43,7 @@ public class rvAdapterFindTutorFragment extends RecyclerView.Adapter<rvAdapterFi
     @Override
     public void onBindViewHolder(@NonNull rvAdapterFindTutorFragment.rvAdapterFindTutorFragmentHolder holder, int position) {
         Course.Result course = getListCourses().get(position);
-        holder.textViewNameCardFindTutor.setText(course.getTutor_user().getName() + " [Maksimum: " + course.getMaximum_member() + " Peserta Kursus]");
+        holder.textViewNameCardFindTutor.setText(course.getTutor_user().getName() + "\n[Maksimum: " + course.getMaximum_member() + " Peserta Kursus]");
         holder.textViewPriceCardFindTutor.setText("Rp. " + String.valueOf(course.getPrice_sum()) + " [" + course.getHour_sum() + " jam]");
         holder.imageViewImageCardFindTutor.setImageResource(R.drawable.tutor2);
     }

@@ -24,6 +24,7 @@
     <string name="description">Deskripsi</string>
     <string name="location">Lokasi</string>
     <string name="toolDescription">Persediaan Alat</string>
+    <string name="nullValue">-</string>
     <string name="schedule">Jadwal</string>
     <string name="time">Jam</string>
     <string name="day">Hari</string>

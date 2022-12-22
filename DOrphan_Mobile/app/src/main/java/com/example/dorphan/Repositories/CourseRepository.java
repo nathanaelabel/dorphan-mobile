@@ -3,7 +3,6 @@ package com.example.dorphan.Repositories;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.dorphan.Models.Course;
-import com.example.dorphan.Models.Skill;
 import com.example.dorphan.Retrofit.ApiService;
 
 import java.util.List;

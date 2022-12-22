@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -12,10 +11,10 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.dorphan.Adapters.rvAdapterFindSkillFragment;
 import com.example.dorphan.Helpers.ItemClickSupport;
@@ -84,6 +83,7 @@ public class FindSkillFragment extends Fragment {
     private SkillViewModel skillViewModelFindSkillFragment;
     private SharedPreferenceHelper helperFindSkillFragment;
     private RecyclerView rvFindSkillFragment;
+    private TextView textViewNullValueFindSkillFragment;
     private List<Skill.Result> arraySkillFindSkillFragment;
     private rvAdapterFindSkillFragment adapterFindSkillFragment;
     private Bundle bundleFindSkillFragment;
@@ -105,7 +105,16 @@ public class FindSkillFragment extends Fragment {
         @Override
         public void onChanged(List<Skill.Result> results) {
             if (results != null) {
-                setRvFindSkillFragment(results);
+                if (results.size() > 0) {
+                    textViewNullValueFindSkillFragment.setVisibility(View.GONE);
+                    setRvFindSkillFragment(results);
+                } else {
+                    textViewNullValueFindSkillFragment.setVisibility(View.VISIBLE);
+                    textViewNullValueFindSkillFragment.setText("Kategori kursus belum tersedia");
+                }
+            } else {
+                textViewNullValueFindSkillFragment.setVisibility(View.VISIBLE);
+                textViewNullValueFindSkillFragment.setText("Terjadi kesalahan...");
             }
         }
     };
@@ -120,6 +129,7 @@ public class FindSkillFragment extends Fragment {
     private void initial() {
         helperFindSkillFragment = SharedPreferenceHelper.getInstance(requireActivity());
         rvFindSkillFragment = getActivity().findViewById(R.id.rvFindSkillFragment);
+        textViewNullValueFindSkillFragment = getActivity().findViewById(R.id.textViewNullValueFindSkillFragment);
         skillViewModelFindSkillFragment = new ViewModelProvider(getActivity()).get(SkillViewModel.class);
     }
 

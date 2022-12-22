@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -15,20 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.dorphan.Adapters.rvAdapterCourseOrderTabFragment;
-import com.example.dorphan.Adapters.rvAdapterFindSkillFragment;
-import com.example.dorphan.Adapters.rvAdapterFindTutorFragment;
 import com.example.dorphan.Helpers.ItemClickSupport;
 import com.example.dorphan.Helpers.SharedPreferenceHelper;
-import com.example.dorphan.Models.Course;
 import com.example.dorphan.Models.CourseBooking;
-import com.example.dorphan.Models.Skill;
 import com.example.dorphan.R;
 import com.example.dorphan.ViewModels.CourseBookingViewModel;
-import com.example.dorphan.ViewModels.CourseViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,6 +70,7 @@ public class CourseOrderTabFragment extends Fragment {
     private CourseBookingViewModel courseBookingViewModelCourseOrderTabFragment;
     private SharedPreferenceHelper helperCourseOrderTabFragment;
     private RecyclerView rvCourseOrderTabFragment;
+    private TextView textViewNullValueCourseOrderTabFragment;
     private List<CourseBooking.Result> arrayCourseBookingCourseOrderTabFragment;
     private rvAdapterCourseOrderTabFragment adapterCourseOrderTabFragment;
     private Bundle bundleCourseOrderTabFragment;
@@ -104,7 +98,13 @@ public class CourseOrderTabFragment extends Fragment {
                         listCourseBookingsNew.add(results.get(i));
                     }
                 }
-                setRvCourseOrderTabFragment(listCourseBookingsNew);
+                if (listCourseBookingsNew.size() > 0) {
+                    textViewNullValueCourseOrderTabFragment.setVisibility(View.GONE);
+                    setRvCourseOrderTabFragment(listCourseBookingsNew);
+                } else {
+                    textViewNullValueCourseOrderTabFragment.setVisibility(View.VISIBLE);
+                    textViewNullValueCourseOrderTabFragment.setText("Data kursus masih kosong");
+                }
             }
         }
     };
@@ -119,6 +119,7 @@ public class CourseOrderTabFragment extends Fragment {
     private void initial() {
         helperCourseOrderTabFragment = SharedPreferenceHelper.getInstance(requireActivity());
         rvCourseOrderTabFragment = getActivity().findViewById(R.id.rvCourseOrderTabFragment);
+        textViewNullValueCourseOrderTabFragment = getActivity().findViewById(R.id.textViewNullValueCourseOrderTabFragment);
         courseBookingViewModelCourseOrderTabFragment = new ViewModelProvider(getActivity()).get(CourseBookingViewModel.class);
     }
 

@@ -4,10 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,16 +14,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.example.dorphan.Adapters.rvAdapterFindSkillFragment;
 import com.example.dorphan.Adapters.rvAdapterFindTutorFragment;
 import com.example.dorphan.Helpers.ItemClickSupport;
 import com.example.dorphan.Helpers.SharedPreferenceHelper;
 import com.example.dorphan.Models.Course;
-import com.example.dorphan.Models.Skill;
 import com.example.dorphan.R;
 import com.example.dorphan.ViewModels.CourseViewModel;
-import com.example.dorphan.ViewModels.SkillViewModel;
 
 import java.util.List;
 
@@ -86,6 +82,7 @@ public class FindTutorFragment extends Fragment {
     private CourseViewModel courseViewModelFindTutorFragment;
     private SharedPreferenceHelper helperFindTutorFragment;
     private RecyclerView rvFindTutorFragment;
+    private TextView textViewNullValueFindTutorFragment;
     private List<Course.Result> arrayCourseFindTutorFragment;
     private rvAdapterFindTutorFragment adapterFindTutorFragment;
     private Bundle bundleFindTutorFragment;
@@ -109,7 +106,16 @@ public class FindTutorFragment extends Fragment {
         @Override
         public void onChanged(List<Course.Result> results) {
             if (results != null) {
-                setRvFindTutorFragment(results);
+                if (results.size() > 0) {
+                    textViewNullValueFindTutorFragment.setVisibility(View.GONE);
+                    setRvFindTutorFragment(results);
+                } else {
+                    textViewNullValueFindTutorFragment.setVisibility(View.VISIBLE);
+                    textViewNullValueFindTutorFragment.setText("Kategori kursus belum tersedia");
+                }
+            } else {
+                textViewNullValueFindTutorFragment.setVisibility(View.VISIBLE);
+                textViewNullValueFindTutorFragment.setText("Terjadi kesalahan...");
             }
         }
     };
@@ -124,6 +130,7 @@ public class FindTutorFragment extends Fragment {
     private void initial() {
         helperFindTutorFragment = SharedPreferenceHelper.getInstance(requireActivity());
         rvFindTutorFragment = getActivity().findViewById(R.id.rvFindTutorFragment);
+        textViewNullValueFindTutorFragment = getActivity().findViewById(R.id.textViewNullValueFindTutorFragment);
         courseViewModelFindTutorFragment = new ViewModelProvider(getActivity()).get(CourseViewModel.class);
     }
 

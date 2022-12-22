@@ -8,10 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +17,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dorphan.Adapters.rvAdapterFindTutorFragment;
 import com.example.dorphan.Helpers.SharedPreferenceHelper;
 import com.example.dorphan.Models.Course;
 import com.example.dorphan.Models.CourseBooking;
-import com.example.dorphan.Models.Skill;
-import com.example.dorphan.Models.User;
+
 import com.example.dorphan.R;
 import com.example.dorphan.ViewModels.CourseBookingViewModel;
 import com.example.dorphan.ViewModels.CourseViewModel;
@@ -145,7 +140,7 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCourseToolDescriptionCourseBookingDetailFragment.setText(results.get(0).getTool_description());
                 textViewCourseTimeCourseBookingDetailFragment.setText(results.get(0).getStart_time());
                 textViewCourseDayCourseBookingDetailFragment.setText(results.get(0).getDay());
-                textViewCourseHourSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getHour_sum())+ "Jam");
+                textViewCourseHourSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getHour_sum())+ " Jam");
                 textViewCourseToolPriceCourseBookingDetailFragment.setText("Rp. "+String.valueOf(results.get(0).getTool_price()));
                 textViewCoursePriceSumCourseBookingDetailFragment.setText("Rp. "+String.valueOf(results.get(0).getPrice_sum()));
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getMaximum_member()) + " Peserta Kursus");

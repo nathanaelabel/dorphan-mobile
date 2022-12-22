@@ -53,9 +53,8 @@ public class rvAdapterCourseOrderTabFragment extends RecyclerView.Adapter<rvAdap
         }
 
         holder.textViewCourseNameCourseOrderTabFragment.setText(courseBooking.getCourse().getSkill().getName());
-        holder.textViewCourseTimeCourseOrderTabFragment.setText("Jam " + courseBooking.getCourse().getStart_time());
-        holder.textViewCourseDayCourseOrderTabFragment.setText(courseBooking.getCourse().getDay());
-        holder.textViewCourseMemberSumCourseOrderTabFragment.setText(String.valueOf(courseBooking.getMember_sum()));
+        holder.textViewCourseDayCourseOrderTabFragment.setText(courseBooking.getCourse().getDay() + ", Jam " + courseBooking.getCourse().getStart_time());
+        holder.textViewCourseMemberSumCourseOrderTabFragment.setText(String.valueOf(courseBooking.getMember_sum() + " Peserta"));
         holder.textViewCoursePriceSumCourseOrderTabFragment.setText("Rp. " + String.valueOf(courseBooking.getCourse().getPrice_sum()));
     }
 
@@ -66,16 +65,14 @@ public class rvAdapterCourseOrderTabFragment extends RecyclerView.Adapter<rvAdap
 
     public class rvAdapterCourseOrderTabFragmentHolder extends RecyclerView.ViewHolder {
         TextView textViewTutorNameCourseOrderTabFragment, textViewIsOnlineCourseOrderTabFragment,
-                textViewCourseNameCourseOrderTabFragment, textViewCourseTimeCourseOrderTabFragment,
-                textViewCourseDayCourseOrderTabFragment, textViewCourseMemberSumCourseOrderTabFragment,
-                textViewCoursePriceSumCourseOrderTabFragment;
+                textViewCourseNameCourseOrderTabFragment, textViewCourseDayCourseOrderTabFragment,
+                textViewCourseMemberSumCourseOrderTabFragment, textViewCoursePriceSumCourseOrderTabFragment;
 
         public rvAdapterCourseOrderTabFragmentHolder(@NonNull View itemView) {
             super(itemView);
             textViewTutorNameCourseOrderTabFragment = itemView.findViewById(R.id.textViewTutorNameCourseOrderTabFragment);
             textViewIsOnlineCourseOrderTabFragment = itemView.findViewById(R.id.textViewIsOnlineCourseOrderTabFragment);
             textViewCourseNameCourseOrderTabFragment = itemView.findViewById(R.id.textViewCourseNameCourseOrderTabFragment);
-            textViewCourseTimeCourseOrderTabFragment = itemView.findViewById(R.id.textViewCourseDayCourseOrderTabFragment);
             textViewCourseDayCourseOrderTabFragment = itemView.findViewById(R.id.textViewCourseDayCourseOrderTabFragment);
             textViewCourseMemberSumCourseOrderTabFragment = itemView.findViewById(R.id.textViewCourseMemberSumCourseOrderTabFragment);
             textViewCoursePriceSumCourseOrderTabFragment = itemView.findViewById(R.id.textViewCoursePriceSumCourseOrderTabFragment);
