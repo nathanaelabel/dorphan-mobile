@@ -155,6 +155,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
+                        android:textColorHint="@color/grey500"
                         app:boxStrokeColor="@drawable/selector_states_textinputlayout"
                         app:boxStrokeWidth="2dp"
                         app:boxStrokeWidthFocused="3dp"
@@ -169,7 +170,8 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/emailTextInputLayout"
                             android:inputType="textEmailAddress"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/grey500" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -180,6 +182,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginEnd="16dp"
+                        android:textColorHint="@color/grey500"
                         app:boxStrokeColor="@drawable/selector_states_textinputlayout"
                         app:boxStrokeWidth="2dp"
                         app:boxStrokeWidthFocused="3dp"

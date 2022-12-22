@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Views.Fragments.CourseBookingDetailFragment">
+    android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
@@ -33,7 +32,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/textViewCourseStatusCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="end"
+                android:paddingStart="8dp"
+                android:paddingTop="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="8dp"
+                android:text="TextView"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView2"
+                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+            <TextView
                 android:id="@+id/textView2"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
@@ -48,18 +66,19 @@
 
             <TextView
                 android:id="@+id/textView3"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:gravity="start"
                 android:text="@string/name"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
             <TextView
                 android:id="@+id/textViewTutorNameCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
@@ -67,7 +86,6 @@
                 android:gravity="end"
                 android:text="TextView"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView3"
@@ -75,24 +93,24 @@
 
             <TextView
                 android:id="@+id/textView4"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/gender"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView3"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTutorNameCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textViewTutorGenderCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="@string/hello_blank_fragment"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewTutorNameCourseBookingDetailFragment"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
@@ -102,15 +120,16 @@
             <View
                 android:id="@+id/divider"
                 android:layout_width="0dp"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginTop="20dp"
-                android:background="?android:attr/listDivider"
+                android:background="@color/grey500"
                 app:layout_constraintEnd_toEndOf="@+id/textViewTutorGenderCourseBookingDetailFragment"
                 app:layout_constraintStart_toStartOf="@+id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTutorGenderCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textView6"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -123,13 +142,13 @@
 
             <TextView
                 android:id="@+id/textViewCourseNameCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="Basket"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewTutorGenderCourseBookingDetailFragment"
                 app:layout_constraintStart_toEndOf="@+id/textView12"
@@ -137,6 +156,7 @@
 
             <TextView
                 android:id="@+id/textView12"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
@@ -147,17 +167,18 @@
 
             <TextView
                 android:id="@+id/textView13"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/description"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseNameCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textViewCourseDescriptionCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
@@ -171,6 +192,7 @@
 
             <TextView
                 android:id="@+id/textView15"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -181,13 +203,13 @@
 
             <TextView
                 android:id="@+id/textViewCourseLocationCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseDescriptionCourseBookingDetailFragment"
                 app:layout_constraintStart_toEndOf="@+id/textView15"
@@ -195,24 +217,24 @@
 
             <TextView
                 android:id="@+id/textView23"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/toolDescription"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView15"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseLocationCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textViewCourseToolDescriptionCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseLocationCourseBookingDetailFragment"
                 app:layout_constraintStart_toEndOf="@+id/textView23"
@@ -221,20 +243,22 @@
             <View
                 android:id="@+id/divider2"
                 android:layout_width="0dp"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginTop="20dp"
-                android:background="?android:attr/listDivider"
+                android:background="@color/grey500"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseToolDescriptionCourseBookingDetailFragment"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseToolDescriptionCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textViewIsOnlineCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:gravity="start"
                 android:text="TextView"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView6"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -242,11 +266,12 @@
 
             <TextView
                 android:id="@+id/textView18"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/schedule"
-                android:textColor="@color/black"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
@@ -254,24 +279,24 @@
 
             <TextView
                 android:id="@+id/textView19"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:text="@string/time"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView18"
                 app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
             <TextView
                 android:id="@+id/textViewCourseTimeCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textColor="#000000"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseToolDescriptionCourseBookingDetailFragment"
                 app:layout_constraintStart_toEndOf="@+id/textView19"
@@ -279,24 +304,24 @@
 
             <TextView
                 android:id="@+id/textView21"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/day"
                 android:textColor="@color/black"
-                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/textView19"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseTimeCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textViewCourseDayCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textColor="#000000"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseTimeCourseBookingDetailFragment"
                 app:layout_constraintStart_toEndOf="@+id/textView21"
@@ -305,15 +330,16 @@
             <View
                 android:id="@+id/divider3"
                 android:layout_width="0dp"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginTop="20dp"
-                android:background="?android:attr/listDivider"
+                android:background="@color/grey500"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseDayCourseBookingDetailFragment"
                 app:layout_constraintStart_toStartOf="@+id/textView18"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseDayCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textView25"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -326,9 +352,10 @@
 
             <TextView
                 android:id="@+id/textView27"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:text="@string/hourlySum"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="@+id/textView25"
@@ -336,6 +363,7 @@
 
             <TextView
                 android:id="@+id/textViewCourseHourSumCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
@@ -350,6 +378,7 @@
 
             <TextView
                 android:id="@+id/textView29"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -361,12 +390,13 @@
 
             <TextView
                 android:id="@+id/textViewCourseToolPriceCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
-                android:textColor="@color/black"
+                android:textColor="#000000"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseHourSumCourseBookingDetailFragment"
@@ -375,25 +405,25 @@
 
             <TextView
                 android:id="@+id/textView31"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/priceSum"
                 android:textColor="@color/black"
-                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView29"
                 app:layout_constraintTop_toBottomOf="@+id/textViewCourseToolPriceCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textViewCoursePriceSumCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:gravity="end"
                 android:text="TextView"
                 android:textColor="@color/black"
-                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCourseToolPriceCourseBookingDetailFragment"
                 app:layout_constraintStart_toEndOf="@+id/textView31"
@@ -401,11 +431,12 @@
 
             <TextView
                 android:id="@+id/textView33"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:text="@string/memberSum"
-                android:textColor="@color/black"
+                android:textColor="#000000"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/textView31"
@@ -413,13 +444,15 @@
 
             <TextView
                 android:id="@+id/textViewMemberSumMaximalDescriptionCourseBookingDetailFragment"
+                style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="16dp"
                 android:text="TextView"
-                android:textColor="@color/black"
+                android:textColor="@color/grey500"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView33"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView33"
                 app:layout_constraintTop_toTopOf="@+id/textView33" />
@@ -441,12 +474,16 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayoutMemberSumCourseBookingDetailFragment"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
+                android:textColorHint="@color/grey500"
                 android:visibility="visible"
                 app:boxStrokeColor="@drawable/selector_states_textinputlayout"
+                app:boxStrokeWidth="2dp"
+                app:boxStrokeWidthFocused="3dp"
                 app:hintTextColor="@drawable/selector_states_textinputlayout"
                 app:layout_constraintBottom_toTopOf="@+id/buttonReservationCourseBookingDetailFragment"
                 app:layout_constraintEnd_toEndOf="@+id/textViewCoursePriceSumCourseBookingDetailFragment"
@@ -454,7 +491,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView33">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    style="@style/D_OrphanTextView.Body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Masukkan jumlah peserta kursus"

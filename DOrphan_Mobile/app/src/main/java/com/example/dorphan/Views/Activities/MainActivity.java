@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private Toolbar toolbar;
 
+    //    public void onClick_function(View v) {
+//        Navigation.findNavController(v).navigate(R.id.action_kursusFragment_to_detailKursusFragment);
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        AppBarConfiguration configuration = new AppBarConfiguration.Builder(R.id.findSkillFragment, R.id.courseBookedFragment).build();
+        AppBarConfiguration configuration = new AppBarConfiguration.Builder(R.id.findSkillFragment, R.id.courseOrderTabFragment).build();
         navController = navFragmentMainMenu.getNavController();
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (destination.getId() == R.id.loginFragment

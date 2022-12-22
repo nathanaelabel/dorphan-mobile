@@ -2,6 +2,7 @@ package com.example.dorphan.Retrofit;
 
 import com.example.dorphan.Helpers.Const;
 import com.example.dorphan.Models.Course;
+import com.example.dorphan.Models.CourseBooking;
 import com.example.dorphan.Models.Register;
 import com.example.dorphan.Models.Skill;
 import com.example.dorphan.Models.TokenResponse;
@@ -87,4 +88,11 @@ public class ApiService {
         return api.addCourseBooking(course_id, member_sum);
     }
 
+    public Call<CourseBooking> getCourseBookings() {
+        return api.getCourseBookings();
+    }
+
+    public Call<CourseBooking> getCourseBooking(int course_booking_id) {
+        return api.getCourseBooking(course_booking_id);
+    }
 }

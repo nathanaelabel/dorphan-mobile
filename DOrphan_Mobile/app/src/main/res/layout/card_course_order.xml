@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="4dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewTutorNameCourseOrderTabFragment"
+                style="@style/D_OrphanTextView.Title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Will Smith"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/textViewIsOnlineCourseOrderTabFragment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="end"
+                android:text="TextView"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewTutorNameCourseOrderTabFragment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textViewTutorNameCourseOrderTabFragment"
+                app:layout_constraintTop_toTopOf="@+id/textViewTutorNameCourseOrderTabFragment" />
+
+            <TextView
+                android:id="@+id/textViewCourseNameCourseOrderTabFragment"
+                style="@style/D_OrphanTextView.Body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_label"
+                android:padding="6dp"
+                android:text="Catur"
+                android:textColor="@color/blue500"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/textViewTutorNameCourseOrderTabFragment"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTutorNameCourseOrderTabFragment" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewCourseNameCourseOrderTabFragment"
+                app:layout_constraintStart_toEndOf="@+id/textViewCourseNameCourseOrderTabFragment"
+                app:layout_constraintTop_toTopOf="@+id/textViewCourseNameCourseOrderTabFragment" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageView2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/img_tutor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewCourseDayCourseOrderTabFragment"
+                style="@style/D_OrphanTextView.Body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Minggu"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewCourseNameCourseOrderTabFragment"
+                app:layout_constraintStart_toEndOf="@+id/divider4"
+                app:layout_constraintTop_toTopOf="@+id/textViewCourseNameCourseOrderTabFragment" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewCourseNameCourseOrderTabFragment"
+                app:layout_constraintStart_toEndOf="@+id/textViewCourseDayCourseOrderTabFragment"
+                app:layout_constraintTop_toTopOf="@+id/textViewCourseNameCourseOrderTabFragment" />
+
+            <TextView
+                android:id="@+id/textViewCourseTimeCourseOrderTabFragment"
+                style="@style/D_OrphanTextView.Body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="4 Jam"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewCourseDayCourseOrderTabFragment"
+                app:layout_constraintStart_toEndOf="@+id/divider5"
+                app:layout_constraintTop_toTopOf="@+id/textViewCourseDayCourseOrderTabFragment"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <View
+                android:id="@+id/divider6"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewCourseNameCourseOrderTabFragment"
+                app:layout_constraintStart_toEndOf="@+id/textViewCourseTimeCourseOrderTabFragment"
+                app:layout_constraintTop_toTopOf="@+id/textViewCourseNameCourseOrderTabFragment" />
+
+            <TextView
+                android:id="@+id/textViewCourseMemberSumCourseOrderTabFragment"
+                style="@style/D_OrphanTextView.Body"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="20 anak"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textViewCourseTimeCourseOrderTabFragment"
+                app:layout_constraintEnd_toEndOf="@+id/textViewIsOnlineCourseOrderTabFragment"
+                app:layout_constraintStart_toEndOf="@+id/divider6"
+                app:layout_constraintTop_toTopOf="@+id/textViewCourseTimeCourseOrderTabFragment" />
+
+            <TextView
+                android:id="@+id/textViewCoursePriceSumCourseOrderTabFragment"
+                style="@style/D_OrphanTextView.Headline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="end"
+                android:text="Rp. 200.000"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textViewIsOnlineCourseOrderTabFragment"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCourseMemberSumCourseOrderTabFragment" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item
         android:id="@+id/findSkillFragment"
         android:icon="@drawable/ic_find"
         android:title="Cari" />
     <item
-        android:id="@+id/courseBookedFragment"
+        android:id="@+id/courseOrderTabFragment"
         android:icon="@drawable/ic_courses"
-        android:title="Kursus" />
+        android:title="Data Kursus" />
 </menu>

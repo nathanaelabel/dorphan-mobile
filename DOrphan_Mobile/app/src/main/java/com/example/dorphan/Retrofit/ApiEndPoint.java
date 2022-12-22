@@ -1,6 +1,7 @@
 package com.example.dorphan.Retrofit;
 
 import com.example.dorphan.Models.Course;
+import com.example.dorphan.Models.CourseBooking;
 import com.example.dorphan.Models.Register;
 import com.example.dorphan.Models.Skill;
 import com.example.dorphan.Models.TokenResponse;
@@ -51,4 +52,10 @@ public interface ApiEndPoint {
     @POST("course-booking")
     @FormUrlEncoded
     Call<JsonObject> addCourseBooking(@Field("course_id") int course_id, @Field("member_sum") int member_sum);
+
+    @GET("course-booking")
+    Call<CourseBooking> getCourseBookings();
+
+    @GET("course-booking/{id}")
+    Call<CourseBooking> getCourseBooking(@Path("id") int course_booking_id);
 }
