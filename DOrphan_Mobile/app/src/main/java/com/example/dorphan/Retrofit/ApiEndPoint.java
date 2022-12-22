@@ -34,11 +34,7 @@ public interface ApiEndPoint {
     Call<JsonObject> logout(@Field("student_id") String student_id);
 
     @GET("user")
-    Call<User> getUsers();
-
-    @POST("get_user")
-    @FormUrlEncoded
-    Call<User> getUserWithId(@Field("user_id") String user_id);
+    Call<User> getUser();
 
     @GET("skill")
     Call<Skill> getSkills();

@@ -26,22 +26,11 @@ public class User implements Parcelable {
         }
     };
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
-    }
-
-
     public static User objectFromData(String str) {
+
         return new Gson().fromJson(str, User.class);
     }
 
-    //////////////////
     public List<Result> getResult() {
         return result;
     }
@@ -50,23 +39,24 @@ public class User implements Parcelable {
         this.result = result;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+    }
+
     public static class Result {
         private int id;
         private String name;
-        private String gender;
-        private String email;
-        private String password;
-        private String phone_number;
-        private String type_user;
-        private String alamat;
-        private Object foto_ktp;
-        private String is_login;
-        private String is_active;
-        private String saldo;
-        private String email_verified_at;
+        private String money;
+        private Object profile_photo_path;
+        private String address;
+        private Orphanage orphanage;
         private String created_at;
         private String updated_at;
-        private Orphanage orphanage;
 
         public static Result objectFromData(String str) {
 
@@ -89,92 +79,36 @@ public class User implements Parcelable {
             this.name = name;
         }
 
-        public String getGender() {
-            return gender;
+        public String getMoney() {
+            return money;
         }
 
-        public void setGender(String gender) {
-            this.gender = gender;
+        public void setMoney(String money) {
+            this.money = money;
         }
 
-        public String getEmail() {
-            return email;
+        public Object getProfile_photo_path() {
+            return profile_photo_path;
         }
 
-        public void setEmail(String email) {
-            this.email = email;
+        public void setProfile_photo_path(Object profile_photo_path) {
+            this.profile_photo_path = profile_photo_path;
         }
 
-        public String getPassword() {
-            return password;
+        public String getAddress() {
+            return address;
         }
 
-        public void setPassword(String password) {
-            this.password = password;
+        public void setAddress(String address) {
+            this.address = address;
         }
 
-        public String getPhone_number() {
-            return phone_number;
+        public Orphanage getOrphanage() {
+            return orphanage;
         }
 
-        public void setPhone_number(String phone_number) {
-            this.phone_number = phone_number;
-        }
-
-        public String getType_user() {
-            return type_user;
-        }
-
-        public void setType_user(String type_user) {
-            this.type_user = type_user;
-        }
-
-        public String getAlamat() {
-            return alamat;
-        }
-
-        public void setAlamat(String alamat) {
-            this.alamat = alamat;
-        }
-
-        public Object getFoto_ktp() {
-            return foto_ktp;
-        }
-
-        public void setFoto_ktp(Object foto_ktp) {
-            this.foto_ktp = foto_ktp;
-        }
-
-        public String getIs_login() {
-            return is_login;
-        }
-
-        public void setIs_login(String is_login) {
-            this.is_login = is_login;
-        }
-
-        public String getIs_active() {
-            return is_active;
-        }
-
-        public void setIs_active(String is_active) {
-            this.is_active = is_active;
-        }
-
-        public String getSaldo() {
-            return saldo;
-        }
-
-        public void setSaldo(String saldo) {
-            this.saldo = saldo;
-        }
-
-        public String getEmail_verified_at() {
-            return email_verified_at;
-        }
-
-        public void setEmail_verified_at(String email_verified_at) {
-            this.email_verified_at = email_verified_at;
+        public void setOrphanage(Orphanage orphanage) {
+            this.orphanage = orphanage;
         }
 
         public String getCreated_at() {
@@ -193,23 +127,12 @@ public class User implements Parcelable {
             this.updated_at = updated_at;
         }
 
-        public Orphanage getOrphanage() {
-            return orphanage;
-        }
-
-        public void setOrphanage(Orphanage orphanage) {
-            this.orphanage = orphanage;
-        }
-
         public static class Orphanage {
             private int id;
+            private String name;
+            private String photo_url;
+            private String description;
             private String user_id;
-            private String nama_panti;
-            private Object deskripsi;
-            private String tanggal_berdiri;
-            private Object foto_panti_1;
-            private Object foto_panti_2;
-            private Object foto_panti_3;
             private String created_at;
             private String updated_at;
 
@@ -226,60 +149,36 @@ public class User implements Parcelable {
                 this.id = id;
             }
 
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public String getPhoto_url() {
+                return photo_url;
+            }
+
+            public void setPhoto_url(String photo_url) {
+                this.photo_url = photo_url;
+            }
+
+            public String getDescription() {
+                return description;
+            }
+
+            public void setDescription(String description) {
+                this.description = description;
+            }
+
             public String getUser_id() {
                 return user_id;
             }
 
             public void setUser_id(String user_id) {
                 this.user_id = user_id;
-            }
-
-            public String getNama_panti() {
-                return nama_panti;
-            }
-
-            public void setNama_panti(String nama_panti) {
-                this.nama_panti = nama_panti;
-            }
-
-            public Object getDeskripsi() {
-                return deskripsi;
-            }
-
-            public void setDeskripsi(Object deskripsi) {
-                this.deskripsi = deskripsi;
-            }
-
-            public String getTanggal_berdiri() {
-                return tanggal_berdiri;
-            }
-
-            public void setTanggal_berdiri(String tanggal_berdiri) {
-                this.tanggal_berdiri = tanggal_berdiri;
-            }
-
-            public Object getFoto_panti_1() {
-                return foto_panti_1;
-            }
-
-            public void setFoto_panti_1(Object foto_panti_1) {
-                this.foto_panti_1 = foto_panti_1;
-            }
-
-            public Object getFoto_panti_2() {
-                return foto_panti_2;
-            }
-
-            public void setFoto_panti_2(Object foto_panti_2) {
-                this.foto_panti_2 = foto_panti_2;
-            }
-
-            public Object getFoto_panti_3() {
-                return foto_panti_3;
-            }
-
-            public void setFoto_panti_3(Object foto_panti_3) {
-                this.foto_panti_3 = foto_panti_3;
             }
 
             public String getCreated_at() {

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,9 +24,12 @@ import com.example.dorphan.Adapters.rvAdapterFindTutorFragment;
 import com.example.dorphan.Helpers.SharedPreferenceHelper;
 import com.example.dorphan.Models.Course;
 import com.example.dorphan.Models.CourseBooking;
+import com.example.dorphan.Models.Skill;
+import com.example.dorphan.Models.User;
 import com.example.dorphan.R;
 import com.example.dorphan.ViewModels.CourseBookingViewModel;
 import com.example.dorphan.ViewModels.CourseViewModel;
+import com.example.dorphan.ViewModels.UserViewModel;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.List;
@@ -71,6 +75,7 @@ public class CourseBookingDetailFragment extends Fragment {
     }
 
     private CourseViewModel courseViewModelCourseBookingDetailFragment;
+    private UserViewModel userViewModelCourseBookingDetailFragment;
     private CourseBookingViewModel courseBookingViewModelCourseBookingDetailFragment;
     private SharedPreferenceHelper helperCourseBookingDetailFragment;
     private int courseId, courseBookingId;
@@ -105,6 +110,21 @@ public class CourseBookingDetailFragment extends Fragment {
         }
         reservationProccess();
     }
+
+    private void getUserInformation(){
+        userViewModelCourseBookingDetailFragment.init(helperCourseBookingDetailFragment.getAccessToken());
+        userViewModelCourseBookingDetailFragment.getUser();
+        userViewModelCourseBookingDetailFragment.getResultUser().observe(getActivity(), showResultUser);
+    }
+
+    private Observer<List<User.Result>> showResultUser = new Observer<List<User.Result>>() {
+        @Override
+        public void onChanged(List<User.Result> results) {
+            if (results != null) {
+                textViewOrphanMoneyCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getMoney()));
+            }
+        }
+    };
 
     private Observer<List<Course.Result>> showResultForCoursesDetail = new Observer<List<Course.Result>>() {
         @Override
@@ -144,6 +164,7 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCourseToolPriceCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getTool_price()));
                 textViewCoursePriceSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getPrice_sum()));
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getMaximum_member()) + " Peserta Kursus");
+                getUserInformation();
             }
         }
     };
@@ -176,6 +197,7 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCoursePriceSumCourseBookingDetailFragment.setText("Rp. " + String.valueOf(results.get(0).getCourse().getPrice_sum()));
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getCourse().getMaximum_member()) + " Peserta Kursus");
                 textViewMemberSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getMember_sum()) + " Peserta Kursus");
+                getUserInformation();
             }
         }
     };
@@ -197,12 +219,14 @@ public class CourseBookingDetailFragment extends Fragment {
         textViewMemberSumCourseBookingDetailFragment = getActivity().findViewById(R.id.textViewMemberSumCourseBookingDetailFragment);
         textViewCourseStatusCourseBookingDetailFragment = getActivity().findViewById(R.id.textViewCourseStatusCourseBookingDetailFragment);
         textInputLayoutMemberSumCourseBookingDetailFragment = getActivity().findViewById(R.id.textInputLayoutMemberSumCourseBookingDetailFragment);
+        textViewOrphanMoneyCourseBookingDetailFragment = getActivity().findViewById(R.id.textViewOrphanMoneyCourseBookingDetailFragment);
 
         buttonReservationCourseBookingDetailFragment = getActivity().findViewById(R.id.buttonReservationCourseBookingDetailFragment);
 
         isReservation = getArguments().getBoolean("isReservation");
         helperCourseBookingDetailFragment = SharedPreferenceHelper.getInstance(requireActivity());
         courseBookingViewModelCourseBookingDetailFragment = new ViewModelProvider(getActivity()).get(CourseBookingViewModel.class);
+        userViewModelCourseBookingDetailFragment = new ViewModelProvider(getActivity()).get(UserViewModel.class);
 
         if (isReservation) {
             courseId = Integer.parseInt(getArguments().getString("courseId"));

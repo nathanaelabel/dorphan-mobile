@@ -15,21 +15,29 @@ public class UserRepository {
     private static UserRepository userRepository;
     private ApiService apiService;
 
-    private UserRepository() {
-        apiService = ApiService.getInstance("");
+    private UserRepository(String token) {
+        apiService = ApiService.getInstance(token);
     }
 
-    public static UserRepository getInstance() {
+    public static UserRepository getInstance(String token) {
         if (userRepository == null) {
-            userRepository = new UserRepository();
+            userRepository = new UserRepository(token);
         }
         return userRepository;
     }
 
-    public MutableLiveData<List<User.Result>> getUsers() {
-        final MutableLiveData<List<User.Result>> LIST_USERS = new MutableLiveData<>();
+    public static synchronized void resetInstance() {
+        if (userRepository != null) {
+            userRepository = null;
+        } else {
+            userRepository = null;
+        }
+    }
 
-        apiService.getUsers().enqueue(new Callback<User>() {
+    public MutableLiveData<List<User.Result>> getUser() {
+        final MutableLiveData<List<User.Result>> LIST_USER = new MutableLiveData<>();
+
+        apiService.getUser().enqueue(new Callback<User>() {
 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
@@ -37,7 +45,7 @@ public class UserRepository {
                 if (response.isSuccessful()) {
 
                     if (response.body() != null) {
-                        LIST_USERS.postValue(response.body().getResult());
+                        LIST_USER.postValue(response.body().getResult());
                     }
 
                 }
@@ -50,6 +58,6 @@ public class UserRepository {
 
         });
 
-        return LIST_USERS;
+        return LIST_USER;
     }
 }

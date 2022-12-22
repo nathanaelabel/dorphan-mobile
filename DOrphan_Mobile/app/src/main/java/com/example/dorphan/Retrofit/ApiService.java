@@ -64,12 +64,8 @@ public class ApiService {
         return api.register(name, email, password, password_confirmation, user_type);
     }
 
-    public Call<User> getUsers() {
-        return api.getUsers();
-    }
-
-    public Call<User> getUserWithId(String userId) {
-        return api.getUserWithId(userId);
+    public Call<User> getUser() {
+        return api.getUser();
     }
 
     public Call<Skill> getSkills() {
