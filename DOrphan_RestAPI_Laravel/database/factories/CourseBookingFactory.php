@@ -15,7 +15,7 @@ class CourseBookingFactory extends Factory
      * Define the model's default state.
      *
      * @return array<string, mixed>
-     */`
+     */
     public function definition()
     {
         $faker = Faker::create('en_EN');

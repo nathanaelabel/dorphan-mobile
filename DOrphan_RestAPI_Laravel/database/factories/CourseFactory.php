@@ -34,6 +34,7 @@ class CourseFactory extends Factory
                 $location = $faker2->address();
             }
         }
+
         $tool_price = $faker->randomElement([0, 20000, 300000, 250000, 40000, 25000]);
         $price_sum = $tool_price + random_int(20000, 500000);
 
