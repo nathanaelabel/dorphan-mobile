@@ -1,7 +1,5 @@
 <?php
 
-//Created by Nur Azizah at 18 Desember 2022
-
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;

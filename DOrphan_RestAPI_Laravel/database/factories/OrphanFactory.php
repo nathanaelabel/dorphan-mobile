@@ -1,7 +1,5 @@
 <?php
 
-//Created by Nur Azizah at 18 Desember 2022
-
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -22,14 +20,15 @@ class OrphanFactory extends Factory
         $faker = Faker::create('id_ID');
         $min = strtotime('47 years ago');
         $max = strtotime('18 years ago');
-        $randTime = mt_rand($min, $max);
-        $randGender = $faker->randomElement(['Male', 'Female']);
-        $birthDate = date('Y-m-d H:i:s', $randTime);
+
+        $rand_time = mt_rand($min, $max);
+        $rand_gender = $faker->randomElement(['Male', 'Female']);
+        $birth_date = date('Y-m-d H:i:s', $rand_time);
 
         return [
-            'name' => $randGender == 'Male' ? $faker->firstNameMale() : $faker->firstNameFemale(),
-            'date_of_birth' => $birthDate,
-            'gender' => $randGender,
+            'name' => $rand_gender == 'Male' ? $faker->firstNameMale() : $faker->firstNameFemale(),
+            'date_of_birth' => $birth_date,
+            'gender' => $rand_gender,
             'note' => random_int(1, 2) == 1 ? 'Anak Disabilitas' : '',
         ];
     }

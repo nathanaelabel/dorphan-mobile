@@ -1,7 +1,5 @@
 <?php
 
-//Created by Nur Azizah at 18 Desember 2022
-
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -21,6 +19,7 @@ class UserFactory extends Factory
     public function definition()
     {
         $faker = Faker::create('id_ID');
+        $rand_gender = $faker->randomElement(['Male', 'Female']);
 
         return [
             'email' => $faker->unique()->safeEmail(),

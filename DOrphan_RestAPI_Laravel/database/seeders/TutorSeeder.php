@@ -1,11 +1,10 @@
 <?php
 
-//Created by Nur Azizah at 18 Desember 2022
-
 namespace Database\Seeders;
 
 use App\Models\Tutor;
 use App\Models\User;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TutorSeeder extends Seeder
@@ -17,10 +16,9 @@ class TutorSeeder extends Seeder
      */
     public function run()
     {
-        //Create tutor data
         foreach (User::all()->where('user_type', 'Tutor') as $user) {
             Tutor::factory()->create([
-                'user_id' => $user->id,
+                'user_id' => $user->id
             ]);
         }
     }

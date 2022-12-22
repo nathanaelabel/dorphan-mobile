@@ -1,7 +1,5 @@
 <?php
 
-//Created by Nur Azizah at 18 Desember 2022
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -30,6 +28,7 @@ return new class () extends Migration {
             ->onDelete('cascade');
             $table->enum('status', ['pending', 'ongoing', 'complete', 'canceled']);
             $table->integer('member_sum')->default(1);
+            $table->string('location')->nullable();
             $table->timestamps();
         });
     }

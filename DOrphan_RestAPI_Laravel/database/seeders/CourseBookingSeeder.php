@@ -1,7 +1,5 @@
 <?php
 
-//Created by Nur Azizah at 18 Desember 2022
-
 namespace Database\Seeders;
 
 use App\Models\CourseBooking;
@@ -18,30 +16,30 @@ class CourseBookingSeeder extends Seeder
      */
     public function run()
     {
-        //Looping all orphanage datas for assign course booking data
         foreach (Orphanage::all() as $orphanage) {
             CourseBooking::factory()->count(random_int(1, 5))->create([
                 'orphanage_id' => $orphanage->id,
             ]);
         }
 
-        //Looping all orphanage datas for assign coursebooking data
         foreach (CourseBooking::all() as $courseBooking) {
+            if ($courseBooking->location == null) {
+                CourseBooking::where('id', $courseBooking->id)->update([
+                    'location' => $courseBooking->orphanage->user->address,
+                ]);
+            }
             if ($courseBooking->status == 'ongoing') {
-                //money minus
-                $status = 'complete';
+                $status = 'complete'; // saldo PA berkurang
             } elseif ($courseBooking->status == 'canceled') {
-                //return money
-                $status = 'canceled';
+                $status = 'canceled'; // saldo PA dikembalikan
             } else {
-                //money not yet decrease
-                $status = 'pending';
+                $status = 'pending'; // saldo PA belum berkurang
             }
 
-            //Create transaction history from course booking
+            // transaction dari PA untuk bayar kursus
             $courseBooking->transaction_id = Transaction::create([
                 'user_id' => $courseBooking->orphanage->user->id,
-                'amount' => $courseBooking->course->hourly_price + $courseBooking->course->tool_price,
+                'amount' => $courseBooking->course->price_sum,
                 'status' => $status,
                 'description' => 'Pembayaran kursus oleh '.$courseBooking->orphanage->name,
                 'to_user_id' => $courseBooking->course->tutor->user->id,

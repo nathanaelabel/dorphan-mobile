@@ -1,7 +1,5 @@
 <?php
 
-//Created by Nur Azizah at 18 Desember 2022
-
 namespace Database\Seeders;
 
 use App\Models\Orphan;
@@ -17,7 +15,6 @@ class OrphanSeeder extends Seeder
      */
     public function run()
     {
-        //Looping orphanage datas to create orphans data
         foreach (Orphanage::all() as $orphanage) {
             Orphan::factory()->count(random_int(10, 100))->create([
                 'orphanage_id' => $orphanage->id,

@@ -1,7 +1,5 @@
 <?php
 
-//Created by Nur Azizah at 18 Desember 2022
-
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
