@@ -14,15 +14,6 @@ public class Course implements Parcelable {
     protected Course(Parcel in) {
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
     public static final Creator<Course> CREATOR = new Creator<Course>() {
         @Override
         public Course createFromParcel(Parcel in) {
@@ -48,22 +39,32 @@ public class Course implements Parcelable {
         this.result = result;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+    }
+
     public static class Result {
         private int id;
         private Tutor tutor;
         private TutorUser tutor_user;
+        private User user;
         private Skill skill;
         private String description;
         private String location;
-        private int is_online;
-        private int is_visit;
-        private int maximum_member;
-        private int tool_price;
+        private String is_online;
+        private String is_visit;
+        private String maximum_member;
+        private String tool_price;
         private String tool_description;
         private String start_time;
         private String day;
-        private int price_sum;
-        private int hour_sum;
+        private String price_sum;
+        private String hour_sum;
         private String created_at;
         private String updated_at;
 
@@ -96,6 +97,14 @@ public class Course implements Parcelable {
             this.tutor_user = tutor_user;
         }
 
+        public User getUser() {
+            return user;
+        }
+
+        public void setUser(User user) {
+            this.user = user;
+        }
+
         public Skill getSkill() {
             return skill;
         }
@@ -120,35 +129,35 @@ public class Course implements Parcelable {
             this.location = location;
         }
 
-        public int getIs_online() {
+        public String getIs_online() {
             return is_online;
         }
 
-        public void setIs_online(int is_online) {
+        public void setIs_online(String is_online) {
             this.is_online = is_online;
         }
 
-        public int getIs_visit() {
+        public String getIs_visit() {
             return is_visit;
         }
 
-        public void setIs_visit(int is_visit) {
+        public void setIs_visit(String is_visit) {
             this.is_visit = is_visit;
         }
 
-        public int getMaximum_member() {
+        public String getMaximum_member() {
             return maximum_member;
         }
 
-        public void setMaximum_member(int maximum_member) {
+        public void setMaximum_member(String maximum_member) {
             this.maximum_member = maximum_member;
         }
 
-        public int getTool_price() {
+        public String getTool_price() {
             return tool_price;
         }
 
-        public void setTool_price(int tool_price) {
+        public void setTool_price(String tool_price) {
             this.tool_price = tool_price;
         }
 
@@ -176,19 +185,19 @@ public class Course implements Parcelable {
             this.day = day;
         }
 
-        public int getPrice_sum() {
+        public String getPrice_sum() {
             return price_sum;
         }
 
-        public void setPrice_sum(int price_sum) {
+        public void setPrice_sum(String price_sum) {
             this.price_sum = price_sum;
         }
 
-        public int getHour_sum() {
+        public String getHour_sum() {
             return hour_sum;
         }
 
-        public void setHour_sum(int hour_sum) {
+        public void setHour_sum(String hour_sum) {
             this.hour_sum = hour_sum;
         }
 
@@ -210,7 +219,7 @@ public class Course implements Parcelable {
 
         public static class Tutor {
             private int id;
-            private int user_id;
+            private String user_id;
             private String bank_account;
             private String description;
             private String created_at;
@@ -230,11 +239,11 @@ public class Course implements Parcelable {
                 this.id = id;
             }
 
-            public int getUser_id() {
+            public String getUser_id() {
                 return user_id;
             }
 
-            public void setUser_id(int user_id) {
+            public void setUser_id(String user_id) {
                 this.user_id = user_id;
             }
 
@@ -282,7 +291,7 @@ public class Course implements Parcelable {
                 private int id;
                 private String name;
                 private String email;
-                private int money;
+                private String money;
                 private String phone_number;
                 private String is_active;
                 private String is_login;
@@ -323,11 +332,11 @@ public class Course implements Parcelable {
                     this.email = email;
                 }
 
-                public int getMoney() {
+                public String getMoney() {
                     return money;
                 }
 
-                public void setMoney(int money) {
+                public void setMoney(String money) {
                     this.money = money;
                 }
 
@@ -417,7 +426,7 @@ public class Course implements Parcelable {
             private int id;
             private String name;
             private String email;
-            private int money;
+            private String money;
             private String phone_number;
             private String is_active;
             private String is_login;
@@ -458,11 +467,145 @@ public class Course implements Parcelable {
                 this.email = email;
             }
 
-            public int getMoney() {
+            public String getMoney() {
                 return money;
             }
 
-            public void setMoney(int money) {
+            public void setMoney(String money) {
+                this.money = money;
+            }
+
+            public String getPhone_number() {
+                return phone_number;
+            }
+
+            public void setPhone_number(String phone_number) {
+                this.phone_number = phone_number;
+            }
+
+            public String getIs_active() {
+                return is_active;
+            }
+
+            public void setIs_active(String is_active) {
+                this.is_active = is_active;
+            }
+
+            public String getIs_login() {
+                return is_login;
+            }
+
+            public void setIs_login(String is_login) {
+                this.is_login = is_login;
+            }
+
+            public String getGender() {
+                return gender;
+            }
+
+            public void setGender(String gender) {
+                this.gender = gender;
+            }
+
+            public String getUser_type() {
+                return user_type;
+            }
+
+            public void setUser_type(String user_type) {
+                this.user_type = user_type;
+            }
+
+            public String getEmail_verified_at() {
+                return email_verified_at;
+            }
+
+            public void setEmail_verified_at(String email_verified_at) {
+                this.email_verified_at = email_verified_at;
+            }
+
+            public Object getProfile_photo_path() {
+                return profile_photo_path;
+            }
+
+            public void setProfile_photo_path(Object profile_photo_path) {
+                this.profile_photo_path = profile_photo_path;
+            }
+
+            public String getAddress() {
+                return address;
+            }
+
+            public void setAddress(String address) {
+                this.address = address;
+            }
+
+            public String getCreated_at() {
+                return created_at;
+            }
+
+            public void setCreated_at(String created_at) {
+                this.created_at = created_at;
+            }
+
+            public String getUpdated_at() {
+                return updated_at;
+            }
+
+            public void setUpdated_at(String updated_at) {
+                this.updated_at = updated_at;
+            }
+        }
+
+        public static class User {
+            private int id;
+            private String name;
+            private String email;
+            private String money;
+            private String phone_number;
+            private String is_active;
+            private String is_login;
+            private String gender;
+            private String user_type;
+            private String email_verified_at;
+            private Object profile_photo_path;
+            private String address;
+            private String created_at;
+            private String updated_at;
+
+            public static User objectFromData(String str) {
+
+                return new Gson().fromJson(str, User.class);
+            }
+
+            public int getId() {
+                return id;
+            }
+
+            public void setId(int id) {
+                this.id = id;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public String getEmail() {
+                return email;
+            }
+
+            public void setEmail(String email) {
+                this.email = email;
+            }
+
+            public String getMoney() {
+                return money;
+            }
+
+            public void setMoney(String money) {
                 this.money = money;
             }
 

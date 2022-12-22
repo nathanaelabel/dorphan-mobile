@@ -111,32 +111,32 @@ public class CourseBookingDetailFragment extends Fragment {
         reservationProccess();
     }
 
-    private void getUserInformation(){
-        userViewModelCourseBookingDetailFragment.init(helperCourseBookingDetailFragment.getAccessToken());
-        userViewModelCourseBookingDetailFragment.getUser();
-        userViewModelCourseBookingDetailFragment.getResultUser().observe(getActivity(), showResultUser);
-    }
-
-    private Observer<List<User.Result>> showResultUser = new Observer<List<User.Result>>() {
-        @Override
-        public void onChanged(List<User.Result> results) {
-            if (results != null) {
-                textViewOrphanMoneyCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getMoney()));
-            }
-        }
-    };
+//    private void getUserInformation(){
+//        userViewModelCourseBookingDetailFragment.init(helperCourseBookingDetailFragment.getAccessToken());
+//        userViewModelCourseBookingDetailFragment.getUser();
+//        userViewModelCourseBookingDetailFragment.getResultUser().observe(getActivity(), showResultUser);
+//    }
+//
+//    private Observer<List<User.Result>> showResultUser = new Observer<List<User.Result>>() {
+//        @Override
+//        public void onChanged(List<User.Result> results) {
+//            if (results != null) {
+//                textViewOrphanMoneyCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getMoney()));
+//            }
+//        }
+//    };
 
     private Observer<List<Course.Result>> showResultForCoursesDetail = new Observer<List<Course.Result>>() {
         @Override
         public void onChanged(List<Course.Result> results) {
             if (results != null) {
 
-                memberSum = results.get(0).getMaximum_member();
+                memberSum = Integer.parseInt(results.get(0).getMaximum_member());
 
                 textViewTutorNameCourseBookingDetailFragment.setText(results.get(0).getTutor_user().getName());
                 textViewTutorGenderCourseBookingDetailFragment.setText(results.get(0).getTutor_user().getGender());
 
-                if (results.get(0).getIs_online() == 1) {
+                if (results.get(0).getIs_online().equalsIgnoreCase("1")) {
                     textViewIsOnlineCourseBookingDetailFragment.setText("Daring");
                     textViewIsOnlineCourseBookingDetailFragment.setTextColor(getResources().getColor(R.color.green500));
                 } else {
@@ -147,10 +147,10 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCourseNameCourseBookingDetailFragment.setText(results.get(0).getSkill().getName());
 
                 textViewCourseDescriptionCourseBookingDetailFragment.setText(results.get(0).getDescription());
-                if (results.get(0).getIs_online() == 1) {
+                if (results.get(0).getIs_online().equalsIgnoreCase("1")) {
                     textViewCourseLocationCourseBookingDetailFragment.setText(results.get(0).getLocation());
                 } else {
-                    if (results.get(0).getIs_visit() == 1) {
+                    if (results.get(0).getIs_visit().equalsIgnoreCase("1")) {
                         textViewCourseLocationCourseBookingDetailFragment.setText("Kursus diadakan di lokasi Panti Asuhan");
                     } else {
                         textViewCourseLocationCourseBookingDetailFragment.setText(results.get(0).getLocation());
@@ -164,7 +164,8 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCourseToolPriceCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getTool_price()));
                 textViewCoursePriceSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getPrice_sum()));
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getMaximum_member()) + " Peserta Kursus");
-                getUserInformation();
+                textViewOrphanMoneyCourseBookingDetailFragment.setText(results.get(0).getUser().getMoney());
+                //                getUserInformation();
             }
         }
     };
@@ -192,12 +193,13 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCourseToolDescriptionCourseBookingDetailFragment.setText(results.get(0).getCourse().getTool_description());
                 textViewCourseTimeCourseBookingDetailFragment.setText(results.get(0).getCourse().getStart_time());
                 textViewCourseDayCourseBookingDetailFragment.setText(results.get(0).getCourse().getDay());
-                textViewCourseHourSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getCourse().getHour_sum()) + " Jam");
-                textViewCourseToolPriceCourseBookingDetailFragment.setText("Rp. " + String.valueOf(results.get(0).getCourse().getTool_price()));
-                textViewCoursePriceSumCourseBookingDetailFragment.setText("Rp. " + String.valueOf(results.get(0).getCourse().getPrice_sum()));
+                textViewCourseHourSumCourseBookingDetailFragment.setText(results.get(0).getCourse().getHour_sum() + " Jam");
+                textViewCourseToolPriceCourseBookingDetailFragment.setText("Rp. " +results.get(0).getCourse().getTool_price());
+                textViewCoursePriceSumCourseBookingDetailFragment.setText("Rp. " +results.get(0).getCourse().getPrice_sum());
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getCourse().getMaximum_member()) + " Peserta Kursus");
                 textViewMemberSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getMember_sum()) + " Peserta Kursus");
-                getUserInformation();
+                textViewOrphanMoneyCourseBookingDetailFragment.setText(results.get(0).getOrphanage_user().getMoney());
+//                getUserInformation();
             }
         }
     };

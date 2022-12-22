@@ -18,7 +18,6 @@ import android.widget.Toast;
 import com.example.dorphan.Helpers.SharedPreferenceHelper;
 import com.example.dorphan.R;
 import com.example.dorphan.ViewModels.LoginViewModel;
-import com.example.dorphan.ViewModels.UserViewModel;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginFragment extends Fragment {
@@ -65,7 +64,6 @@ public class LoginFragment extends Fragment {
     private Button buttonLoginFragmentLogin;
     private TextView textViewRegisterFragmentLogin;
     private LoginViewModel loginViewModelFragmentLogin;
-    private UserViewModel userViewModelFragmentLogin;
     private SharedPreferenceHelper helperFragmentLogin;
     private String objEmailFragmentLogin, objPasswordFragmentLogin;
 
@@ -131,7 +129,6 @@ public class LoginFragment extends Fragment {
         textViewRegisterFragmentLogin = view.findViewById(R.id.textViewRegisterFragmentLogin);
 
         loginViewModelFragmentLogin = new ViewModelProvider(getActivity()).get(LoginViewModel.class);
-        userViewModelFragmentLogin = new ViewModelProvider(getActivity()).get(UserViewModel.class);
     }
 
     @Override

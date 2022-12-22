@@ -18,9 +18,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
 import com.example.dorphan.R;
-import com.example.dorphan.ViewModels.LoginViewModel;
 import com.example.dorphan.ViewModels.RegisterViewModel;
-import com.example.dorphan.ViewModels.UserViewModel;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class RegisterFragment extends Fragment {
