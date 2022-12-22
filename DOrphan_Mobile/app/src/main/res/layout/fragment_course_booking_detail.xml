@@ -439,21 +439,20 @@
                 android:textColor="#000000"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/textView31"
-                app:layout_constraintTop_toBottomOf="@+id/textViewCoursePriceSumCourseBookingDetailFragment" />
+                app:layout_constraintStart_toStartOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/textViewOrphanMoneyCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textViewMemberSumMaximalDescriptionCourseBookingDetailFragment"
                 style="@style/D_OrphanTextView.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="15dp"
                 android:text="TextView"
                 android:textColor="@color/grey500"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView33"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textViewOrphanMoneyCourseBookingDetailFragment"
                 app:layout_constraintStart_toEndOf="@+id/textView33"
                 app:layout_constraintTop_toTopOf="@+id/textView33" />
 
@@ -477,16 +476,14 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="15dp"
                 android:textColorHint="@color/grey500"
                 android:visibility="visible"
                 app:boxStrokeColor="@drawable/selector_states_textinputlayout"
                 app:boxStrokeWidth="2dp"
                 app:boxStrokeWidthFocused="3dp"
                 app:hintTextColor="@drawable/selector_states_textinputlayout"
-                app:layout_constraintBottom_toTopOf="@+id/buttonReservationCourseBookingDetailFragment"
-                app:layout_constraintEnd_toEndOf="@+id/textViewCoursePriceSumCourseBookingDetailFragment"
+                app:layout_constraintEnd_toEndOf="@+id/textViewMemberSumMaximalDescriptionCourseBookingDetailFragment"
                 app:layout_constraintStart_toStartOf="@+id/textView33"
                 app:layout_constraintTop_toBottomOf="@+id/textView33">
 
@@ -512,30 +509,35 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/textViewOrphanMoneyCourseBookingDetailFragment"
-                app:layout_constraintStart_toStartOf="@+id/textView7"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintEnd_toEndOf="@+id/textViewMemberSumMaximalDescriptionCourseBookingDetailFragment"
+                app:layout_constraintStart_toStartOf="@+id/textView33"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMemberSumCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textView7"
                 style="@style/D_OrphanTextView.Body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 android:text="Sisa saldo"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayoutMemberSumCourseBookingDetailFragment"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayoutMemberSumCourseBookingDetailFragment" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView31"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCoursePriceSumCourseBookingDetailFragment" />
 
             <TextView
                 android:id="@+id/textViewOrphanMoneyCourseBookingDetailFragment"
                 style="@style/D_OrphanTextView.Body"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:gravity="end"
                 android:text="TextView"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/textView7"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayoutMemberSumCourseBookingDetailFragment"
+                app:layout_constraintEnd_toEndOf="@+id/textViewCoursePriceSumCourseBookingDetailFragment"
+                app:layout_constraintStart_toEndOf="@+id/textView7"
                 app:layout_constraintTop_toTopOf="@+id/textView7" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
