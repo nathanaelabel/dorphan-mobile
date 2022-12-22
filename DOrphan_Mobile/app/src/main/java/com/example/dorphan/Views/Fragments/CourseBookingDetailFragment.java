@@ -82,7 +82,7 @@ public class CourseBookingDetailFragment extends Fragment {
             textViewCourseDayCourseBookingDetailFragment, textViewCourseHourSumCourseBookingDetailFragment,
             textViewCourseToolPriceCourseBookingDetailFragment, textViewCoursePriceSumCourseBookingDetailFragment,
             textViewMemberSumMaximalDescriptionCourseBookingDetailFragment, textViewMemberSumCourseBookingDetailFragment,
-            textViewCourseStatusCourseBookingDetailFragment;
+            textViewCourseStatusCourseBookingDetailFragment, textViewOrphanMoneyCourseBookingDetailFragment;
     private TextInputLayout textInputLayoutMemberSumCourseBookingDetailFragment;
     private Button buttonReservationCourseBookingDetailFragment;
     private int memberSumTextInputLayout, memberSum;
