@@ -149,7 +149,7 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCourseToolPriceCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getTool_price()));
                 textViewCoursePriceSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getPrice_sum()));
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getMaximum_member()) + " Peserta Kursus");
-                textViewOrphanMoneyCourseBookingDetailFragment.setText(results.get(0).getUser().getMoney());
+                textViewOrphanMoneyCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getUser().getMoney()));
             }
         }
     };
@@ -182,7 +182,7 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCoursePriceSumCourseBookingDetailFragment.setText("Rp. " +results.get(0).getCourse().getPrice_sum());
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getCourse().getMaximum_member()) + " Peserta Kursus");
                 textViewMemberSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getMember_sum()) + " Peserta Kursus");
-                textViewOrphanMoneyCourseBookingDetailFragment.setText(results.get(0).getOrphanage_user().getMoney());
+                textViewOrphanMoneyCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getOrphanage_user().getMoney()));
             }
         }
     };
@@ -251,7 +251,7 @@ public class CourseBookingDetailFragment extends Fragment {
 
                             courseBookingViewModelCourseBookingDetailFragment.addCourseBooking(courseId, memberSumTextInputLayout).observe(CourseBookingDetailFragment.this.requireActivity(), status -> {
                                 if (!status.isEmpty()) {
-                                    if (status == "Reservasi kursus berhasil!") {
+                                    if (status.equalsIgnoreCase("Reservasi kursus berhasil!")) {
                                         Toast.makeText(CourseBookingDetailFragment.this.requireActivity(), status, Toast.LENGTH_SHORT).show();
                                     } else {
                                         Toast.makeText(CourseBookingDetailFragment.this.requireActivity(), status, Toast.LENGTH_SHORT).show();
