@@ -36,14 +36,13 @@ public class MainActivity extends AppCompatActivity {
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (destination.getId() == R.id.loginFragment
                     || destination.getId() == R.id.registerFragment) {
-                getSupportActionBar().hide();
                 bottomNavigationView.setVisibility(View.GONE);
             } else {
-                getSupportActionBar().show();
                 bottomNavigationView.setVisibility(View.VISIBLE);
             }
         });
 
+        getSupportActionBar().hide();
         NavigationUI.setupActionBarWithNavController(MainActivity.this, navController, configuration);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
