@@ -268,7 +268,7 @@ public class CourseBookingDetailFragment extends Fragment {
                     if (memberSumTextInputLayout > memberSum) {
                         Toast.makeText(CourseBookingDetailFragment.this.requireActivity(), "Kuota peserta kursus tidak memenuhi!", Toast.LENGTH_SHORT).show();
                     } else {
-                        Toast.makeText(CourseBookingDetailFragment.this.requireActivity(), "Jumlah peserta kursus minimal 1 peserta!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CourseBookingDetailFragment.this.requireActivity(), "Minimal 1 peserta kursus!", Toast.LENGTH_SHORT).show();
                     }
 
                 }
