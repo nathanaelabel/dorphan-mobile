@@ -145,11 +145,11 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCourseToolDescriptionCourseBookingDetailFragment.setText(results.get(0).getTool_description());
                 textViewCourseTimeCourseBookingDetailFragment.setText(results.get(0).getStart_time());
                 textViewCourseDayCourseBookingDetailFragment.setText(results.get(0).getDay());
-                textViewCourseHourSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getHour_sum()));
-                textViewCourseToolPriceCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getTool_price()));
-                textViewCoursePriceSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getPrice_sum()));
+                textViewCourseHourSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getHour_sum())+ "Jam");
+                textViewCourseToolPriceCourseBookingDetailFragment.setText("Rp. "+String.valueOf(results.get(0).getTool_price()));
+                textViewCoursePriceSumCourseBookingDetailFragment.setText("Rp. "+String.valueOf(results.get(0).getPrice_sum()));
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getMaximum_member()) + " Peserta Kursus");
-                textViewOrphanMoneyCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getUser().getMoney()));
+                textViewOrphanMoneyCourseBookingDetailFragment.setText("Rp. "+String.valueOf(results.get(0).getUser().getMoney()));
             }
         }
     };
@@ -182,7 +182,7 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCoursePriceSumCourseBookingDetailFragment.setText("Rp. " +results.get(0).getCourse().getPrice_sum());
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getCourse().getMaximum_member()) + " Peserta Kursus");
                 textViewMemberSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getMember_sum()) + " Peserta Kursus");
-                textViewOrphanMoneyCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getOrphanage_user().getMoney()));
+                textViewOrphanMoneyCourseBookingDetailFragment.setText("Rp. "+String.valueOf(results.get(0).getOrphanage_user().getMoney()));
             }
         }
     };
