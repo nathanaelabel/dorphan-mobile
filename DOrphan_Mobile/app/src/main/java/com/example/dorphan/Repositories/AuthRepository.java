@@ -33,7 +33,6 @@ public class AuthRepository {
         apiService.login(email, password).enqueue(new Callback<TokenResponse>() {
             @Override
             public void onResponse(Call<TokenResponse> call, Response<TokenResponse> response) {
-                System.out.println("respon:" + response.body());
                 if (response.body() != null) {
                     tokenResponseMutableLiveData.postValue(response.body());
                 }

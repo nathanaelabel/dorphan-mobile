@@ -88,7 +88,6 @@ public class FindSkillFragment extends Fragment {
     private rvAdapterFindSkillFragment adapterFindSkillFragment;
     private Bundle bundleFindSkillFragment;
     private int bundleSkillId;
-    //private ConstraintLayout loadHistory;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

@@ -98,10 +98,10 @@ public class LoginFragment extends Fragment {
 
                 objEmailFragmentLogin = textInputLayoutEmailFragmentLogin.getEditText().getText().toString().trim();
                 objPasswordFragmentLogin = textInputLayoutPasswordFragmentLogin.getEditText().getText().toString().trim();
-
+                System.out.println("pass: "+objPasswordFragmentLogin+ objEmailFragmentLogin);
                 if (!objEmailFragmentLogin.isEmpty() && !objPasswordFragmentLogin.isEmpty()) {
                     loginViewModelFragmentLogin.login(objEmailFragmentLogin, objPasswordFragmentLogin).observe(LoginFragment.this.requireActivity(), tokenResponse -> {
-
+System.out.println("tokenku: "+tokenResponse);
                         if (tokenResponse != null) {
                             if (tokenResponse.getResult() != null) {
                                 helperFragmentLogin.saveAccessToken(tokenResponse.getResult().getAuthorization());

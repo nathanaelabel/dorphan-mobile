@@ -111,21 +111,6 @@ public class CourseBookingDetailFragment extends Fragment {
         reservationProccess();
     }
 
-//    private void getUserInformation(){
-//        userViewModelCourseBookingDetailFragment.init(helperCourseBookingDetailFragment.getAccessToken());
-//        userViewModelCourseBookingDetailFragment.getUser();
-//        userViewModelCourseBookingDetailFragment.getResultUser().observe(getActivity(), showResultUser);
-//    }
-//
-//    private Observer<List<User.Result>> showResultUser = new Observer<List<User.Result>>() {
-//        @Override
-//        public void onChanged(List<User.Result> results) {
-//            if (results != null) {
-//                textViewOrphanMoneyCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getMoney()));
-//            }
-//        }
-//    };
-
     private Observer<List<Course.Result>> showResultForCoursesDetail = new Observer<List<Course.Result>>() {
         @Override
         public void onChanged(List<Course.Result> results) {
@@ -165,7 +150,6 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewCoursePriceSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getPrice_sum()));
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getMaximum_member()) + " Peserta Kursus");
                 textViewOrphanMoneyCourseBookingDetailFragment.setText(results.get(0).getUser().getMoney());
-                //                getUserInformation();
             }
         }
     };
@@ -199,7 +183,6 @@ public class CourseBookingDetailFragment extends Fragment {
                 textViewMemberSumMaximalDescriptionCourseBookingDetailFragment.setText("Maksimum " + String.valueOf(results.get(0).getCourse().getMaximum_member()) + " Peserta Kursus");
                 textViewMemberSumCourseBookingDetailFragment.setText(String.valueOf(results.get(0).getMember_sum()) + " Peserta Kursus");
                 textViewOrphanMoneyCourseBookingDetailFragment.setText(results.get(0).getOrphanage_user().getMoney());
-//                getUserInformation();
             }
         }
     };
