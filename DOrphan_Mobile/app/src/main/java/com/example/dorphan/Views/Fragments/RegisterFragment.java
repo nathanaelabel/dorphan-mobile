@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -65,6 +66,7 @@ public class RegisterFragment extends Fragment {
     private TextInputLayout textInputLayoutNameFragmentRegister, textInputLayoutEmailFragmentRegister,
             textInputLayoutPasswordFragmentRegister, textInputLayoutPasswordConfirmationFragmentRegister;
     private Button buttonRegisterFragmentRegister;
+    private TextView textViewLoginFragmentRegister;
     private RegisterViewModel registerViewModelFragmentRegister;
     private RadioGroup radioGroupUserTypeFragmentRegister;
     private String objNameFragmentRegister, objEmailFragmentRegister, objPasswordFragmentRegister,
@@ -91,6 +93,15 @@ public class RegisterFragment extends Fragment {
                         objUserTypeFragmentRegister = "Tutor";
                         break;
                 }
+            }
+        });
+    }
+
+    private void goToLoginFragment() {
+        textViewLoginFragmentRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_registerFragment_to_loginFragment);
             }
         });
     }
@@ -151,6 +162,7 @@ public class RegisterFragment extends Fragment {
         textInputLayoutPasswordConfirmationFragmentRegister = view.findViewById(R.id.textInputLayoutPasswordConfirmationFragmentRegister);
         buttonRegisterFragmentRegister = view.findViewById(R.id.buttonRegisterFragmentRegister);
         radioGroupUserTypeFragmentRegister = view.findViewById(R.id.radioGroupUserTypeFragmentRegister);
+        textViewLoginFragmentRegister = view.findViewById(R.id.textViewLoginFragmentRegister);
 
         registerViewModelFragmentRegister = new ViewModelProvider(getActivity()).get(RegisterViewModel.class);
     }

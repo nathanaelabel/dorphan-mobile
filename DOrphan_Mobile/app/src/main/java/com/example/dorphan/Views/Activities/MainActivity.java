@@ -20,9 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private NavController navController;
     private Toolbar toolbar;
 
-    //    public void onClick_function(View v) {
-//        Navigation.findNavController(v).navigate(R.id.action_kursusFragment_to_detailKursusFragment);
-//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
